@@ -37,7 +37,7 @@ ion-toolbar {
 }
 
 ion-content {
-  --background: linear-gradient( rgba(0,0,0,1) 15%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 70%) !important;
+  --background: linear-gradient( rgba(0,0,0,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 60%) !important;
 }
 
 ion-card {
@@ -57,6 +57,14 @@ ion-slides {
   padding-left:30px
 }
 
+ion-segment {
+  --color: #000000;
+}
+
+ion-segment-button {
+  --color:#CCCCCC;
+}
+
 .poin {
   width:85%;
   height:35px;
@@ -68,4 +76,14 @@ ion-slides {
   background-color:#FFFFFF;
   padding-left:16px;
   padding-top:8px;
+  background-image: url("/assets/images/mask-group.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.poin-text {
+  color:#000000;
+  margin-left:10px;
+  font-family:'Helvetica';
+  font-size:14px;
 }
