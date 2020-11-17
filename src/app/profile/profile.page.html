@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Foto Profile, Nama dan Email-->
+  <div class= "back-profile">
+      <img class="photo-profile" src="assets/images/profile/18.jpg">
+      <div class="profile">
+          <ion-text class="name-profile" > Gabriel </ion-text>
+          <ion-text class="email-profile" > gabriel.j@gmail.com </ion-text>
+       </div>
+  </div>
+  
+  <!-- Saldo dan Poin-->
+  <div class="saldo-poin ion-margin-top">
+    <div class="saldo">
+      <img class="saldo-img" src="assets/images/profile/money.png">
+      <ion-text class="text-saldo"> Saldo </ion-text>
+      <ion-text class="text-saldo-nominal"> Rp. 100.000 </ion-text>
+    </div>
+
+    <img class="line-vertical-img" src="assets/images/profile/line-vertical.png">
+
+    <div class="saldo">
+      <img class="saldo-img" src="assets/images/profile/poin-star.png">
+      <ion-text class="text-saldo"> Poin </ion-text>
+      <ion-text class="text-saldo-nominal"> 100.000 pts </ion-text>
+    </div>
+  </div>
+
+  <!-- Pesanan Saya -->
+  <div class="pesanan ion-margin-top">
+    <ion-text class="text-pesanan"> Pesanan Saya </ion-text>
+    <ion-grid >
+      <ion-row>
+
+        <ion-col class="grid-pesanan">
+          <img class="pesanan-img" src="assets/images/profile/time-is-money.png">
+          <ion-text class="text-pesanan-detail"> Menunggu Pembayaran </ion-text>
+        </ion-col>
+
+        <ion-col class="grid-pesanan" col-6>
+          <img class="pesanan-img" src="assets/images/profile/box.png">
+          <ion-text class="text-pesanan-detail"> Dalam Proses </ion-text>
+        </ion-col>
+
+        <ion-col class="grid-pesanan">
+          <img class="pesanan-img" src="assets/images/profile/truck.png">
+          <ion-text class="text-pesanan-detail"> Sedang Dikirim </ion-text>
+        </ion-col>
+
+       </ion-row>
+    </ion-grid>
+
+    <hr class="line-horizontal">
+  </div>
+
+  <!-- Kupon, Wishlist, dan Pengaturan Akun -->
+  <div class="list ion-margin-top">
+    <ion-list>
+
+        <ion-item class="item">
+          <ion-label class="label">
+            <h2 class="text-list">Kupon</h2>
+            <p class="text-list-detail">Cek kupon yang siap digunakan</p>
+          </ion-label>
+          <ion-text class="siku"> > </ion-text>
+        </ion-item>
+
+        <ion-item class="item">
+          <ion-label class="label">
+            <h2 class="text-list">Wishlist</h2>
+            <p class="text-list-detail">Lihat produk yang sudah Anda wishlist</p>
+          </ion-label>
+          <ion-text class="siku"> > </ion-text>
+        </ion-item>
+
+        <ion-item class="item">
+          <ion-label class="label">
+            <h2 class="text-list">Pengaturan Akun</h2>
+            <p class="text-list-detail">Melihat dan mengelola info Anda</p>
+          </ion-label>
+          <ion-text class="siku"> > </ion-text>
+        </ion-item>
+
+    </ion-list>
+  </div>
+
+
+
+</ion-content>
