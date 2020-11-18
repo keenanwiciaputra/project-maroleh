@@ -6,7 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: 'sub-city',
+    loadChildren: () => import('./sub-city/sub-city.module').then( m => m.SubCityPageModule)
+  },  {
+    path: 'sub-item',
+    loadChildren: () => import('./sub-item/sub-item.module').then( m => m.SubItemPageModule)
   }
+
+
 ];
 
 @NgModule({

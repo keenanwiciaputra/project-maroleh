@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'notif',
+    loadChildren: () => import('./notif/notif.module').then( m => m.NotifPageModule)
+  },
 
 ];
 
