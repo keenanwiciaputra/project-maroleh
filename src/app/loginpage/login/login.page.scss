@@ -1,0 +1,88 @@
+.titlelogin {
+  padding-top: 90px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-family:'Montserrat';
+  font-size: 42px;
+  color: #ffffff;
+}
+
+.title {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  text-align: start;
+  font-family:'Helvetica';
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.spacing {
+  padding-bottom: 50px;
+}
+
+.forgotpassword {
+  text-align: start;
+  font-family:'Helvetica';
+  color: #000000;
+  font-size: 14px;
+}
+
+.registerbutton {
+  font-family:'Helvetica';
+  color: #000000;
+  font-size: 14px;
+}
+
+ion-button{
+  --background: #000000;
+  --border-radius:10px;
+  text-transform: none;
+}
+
+ion-toolbar {
+  --background: #000000;
+}
+
+ion-content {
+  --background: linear-gradient( rgba(0,0,0,1) 15%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 70%) !important;
+}
+
+ion-input {
+  border-bottom: 2px solid #000000;
+}
+
+.main {
+  border-radius: 0px 0px 30px 30px;
+  background: #000000;
+  width: 100%;
+  padding-bottom: 5%;
+  padding-top: 3%;
+  box-shadow:3px 3px 8px #888888;
+}
+
+.padding{
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.form {
+  padding-bottom: 10px;
+  color: #000000;
+  font-size: 16px;
+} 
+
+.formbutton {
+
+  color: #000000;
+}
+
+.buttonlogin {
+    size: 20px;
+}
+
+
+
+
+
+

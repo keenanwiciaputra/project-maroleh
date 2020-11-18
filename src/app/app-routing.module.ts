@@ -23,6 +23,22 @@ const routes: Routes = [
     path: 'notif',
     loadChildren: () => import('./main/notif/notif.module').then( m => m.NotifPageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./loginpage/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./loginpage/signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'forgot',
+    loadChildren: () => import('./loginpage/forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./loginpage/welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
 
 ];
 

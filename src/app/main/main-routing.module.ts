@@ -30,7 +30,11 @@ const routes: Routes = [
         loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
       }
     ]
+  },  {
+    path: 'deskripsi',
+    loadChildren: () => import('./deskripsi/deskripsi.module').then( m => m.DeskripsiPageModule)
   }
+
 ];
 
 @NgModule({
