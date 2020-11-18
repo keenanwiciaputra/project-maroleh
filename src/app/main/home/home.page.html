@@ -13,9 +13,10 @@
 
 <ion-content [fullscreen]="true">
   <ion-content>
+    <div class="page-container">
     <ion-searchbar> 
     </ion-searchbar>
-    <ion-slides [options]="slideOpts" class="carousel-slides">
+    <ion-slides [options]="slideOpts" class="carousel-slides ion-margin-top">
       <ion-slide>
         <ion-card class="carousel-card">
           <img src="../assets/images/carousel-1.png">
@@ -203,7 +204,7 @@
         Diskon
       </ion-text>
     </div>
-      <ion-slides [options]="slideOpts2" class="diskon-item-slides">
+      <ion-slides [options]="slideOpts2" class="diskon-item-slides ion-margin-bottom">
         <ion-slide class="diskon-item-slide">
           <ion-card class="ion-padding-bottom diskon-item-card">
             <img src="../assets/images/wayang.png">
@@ -295,6 +296,7 @@
           </ion-card>
         </ion-slide>
       </ion-slides>
+    </div>
     </ion-content>
   </ion-content>
 
