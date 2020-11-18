@@ -30,6 +30,7 @@ ion-title {
   font-family:'Montserrat';
   font-size: 22px;
   font-weight: bold;
+  color: #FFFFFF;
 }
 
 ion-toolbar {
@@ -40,11 +41,6 @@ ion-content {
   --background: linear-gradient( rgba(0,0,0,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 60%) !important;
 }
 
-ion-card {
-  border-radius: 25px;
-  box-shadow:0px;
-}
-
 ion-searchbar {
   width:90%;
   --border-radius: 10px;
@@ -53,16 +49,36 @@ ion-searchbar {
   display:block;
 }
 
-ion-slides {
-  padding-left:30px
+ion-card {
+  --background: #FFFFFF;
 }
-
-ion-segment {
-  --color: #000000;
-}
+// ion-segment {
+//   --color: #000000;
+// }
 
 ion-segment-button {
-  --color:#CCCCCC;
+  --color-checked:#000000;
+  --color: #CCCCCC;
+}
+
+ion-col {
+  color: #000000;
+}
+
+.icon-toolbar {
+  color:#FFFFFF;
+}
+
+.carousel-card {
+  border-radius: 25px;
+  box-shadow:0px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+
+.carousel-slides {
+  padding-left:5%;
 }
 
 .poin {
@@ -86,4 +102,131 @@ ion-segment-button {
   margin-left:10px;
   font-family:'Helvetica';
   font-size:14px;
+}
+
+.segment {
+  margin-top:10px;
+  margin-left:15px;
+  margin-right:15px;
+}
+
+.icon-container {
+  width:4rem;
+  height:4rem;
+  background-color: #FFFFFF;
+  border: 2px solid #CECECE;
+  border-radius:7px;
+  display:flex;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.icon-img {
+  align-self:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.icon-img-daerah {
+  display:flex;
+  align-self:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.icon-label {
+  font-size: 10px;
+  font-family: 'Helvetica';
+  color: #000000;
+}
+
+.home-subtitle {
+  color: #000000;
+  font-family: 'Helvetica';
+  font-weight:bold;
+  font-size: 11px;
+  padding-left:5%;
+  margin-top:0px;
+}
+
+.img-promo {
+  margin-left:auto;
+  margin-right:auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+
+.diskon-card-header {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.diskon-item-slides {
+  padding-left:3%;
+}
+
+.diskon-title {
+  font-size: 8px;
+  font-family: 'Helvetica';
+}
+
+.diskon-price {
+  font-size: 10px;
+  font-family: 'Helvetica';
+  margin-top:8px;
+  margin-bottom:0px;
+  color: #F89208;
+  font-weight: bold;
+}
+
+.diskon-original-container {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.diskon-price-original {
+  text-decoration: line-through;
+  color: #B4B4B4;
+  font-size: 8px;
+  font-family: 'Helvetica';
+  font-weight: bold;
+}
+
+.diskon-amount {
+  border-radius:25px;
+  background-color: #FFE3E3;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-left:3px;
+  color: #F70000;
+  font-size: 6px;
+  font-family: 'Helvetica';
+  font-weight: bold;
+}
+
+.diskon-place {
+  font-size: 6px;
+  font-weight:bold;
+  font-family: 'Helvetica';
+  margin-left: 3px;
+}
+
+.diskon-star {
+  font-size: 10px;
+}
+
+.diskon-count-star {
+  font-size: 6px;
+  font-weight:bold;
+  font-family: 'Helvetica';
+  margin-left: 3px;
+  margin-top: 2px
+}
+
+.diskon-item-card {
+  height: 250px;
+  width: 100%;
 }

@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  segmentChecker : boolean;
 
   slideOpts = {
     initialSlide: 0,
@@ -13,6 +14,19 @@ export class HomePage {
     width:380,
     centeredSlides: true
   };
+
+  slideOpts2 = {
+    initialSlide: 0,
+    speed: 400,
+    width:170,
+    centeredSlides: true
+  };
+
+  segmentChanged(ev: any) {
+    console.log(ev.detail.value);
+    this.segmentChecker = !this.segmentChecker;
+  }
+
 
   constructor() {}
 
