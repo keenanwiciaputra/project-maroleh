@@ -33,27 +33,16 @@
   
   ion-toolbar {
     --background: #000000;
+    color: #FFFFFF;
   }
   
   ion-content {
-    --background: linear-gradient(rgba(255,255,255,1) 100%) !important;
+    --background-color: linear-gradient(rgba(255,255,255,1) 100%) !important;
   }
   
   ion-card {
     border-radius: 25px;
     box-shadow:0px;
-  }
-  
-  ion-searchbar {
-    width:90%;
-    --border-radius: 10px;
-    margin-left: auto;
-    margin-right:auto;
-    display:block;
-  }
-  
-  ion-slides {
-    padding-left:30px
   }
 
   .back-profile{
@@ -79,6 +68,7 @@
   .name-profile{
     font-family:'Helvetica';
     font-size: 20px;
+    color: #FFFFFF;
   }
 
   .email-profile{
@@ -211,9 +201,19 @@
   }
 
   .siku{
-    font-family:'Arial';
-    font-size: 25px;
     color:#646464;
-    }
+    margin-right: -4px;
+  }
 
+  .div-siku{
+    color:#646464;
+    margin-right: -4px;
+  }
+
+  ion-item{
+    --inset-highlight-height:0.8px;
+    --highlight-background:#000000;
+  }
   
+
+    
