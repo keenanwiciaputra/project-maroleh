@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage
-  },  {
+  },
+  {
     path: 'sub-city',
     loadChildren: () => import('./sub-city/sub-city.module').then( m => m.SubCityPageModule)
   },

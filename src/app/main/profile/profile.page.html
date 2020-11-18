@@ -1,9 +1,192 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <!-- Foto Profile, Nama dan Email-->
+  <div class= "back-profile">
+      <img class="photo-profile" src="assets/images/profile/18.jpg">
+      <div class="profile">
+          <ion-text class="name-profile" > Gabriel </ion-text>
+          <ion-text class="email-profile" > gabriel.j@gmail.com </ion-text>
+       </div>
+  </div>
+  
+  <!-- Saldo dan Poin-->
+  <div class="saldo-poin ion-margin-top">
+    <div class="saldo">
+      <img class="saldo-img" src="assets/images/profile/money.png">
+      <ion-text class="text-saldo"> Saldo </ion-text>
+      <ion-text class="text-saldo-nominal"> Rp. 100.000 </ion-text>
+    </div>
+
+    <img class="line-vertical-img" src="assets/images/profile/line-vertical.png">
+
+    <div class="saldo">
+      <img class="saldo-img" src="assets/images/profile/poin-star.png">
+      <ion-text class="text-saldo"> Poin </ion-text>
+      <ion-text class="text-saldo-nominal"> 100.000 pts </ion-text>
+    </div>
+  </div>
+
+  <!-- Pesanan Saya -->
+  <div class="pesanan ion-margin-top">
+    <ion-text class="text-pesanan"> Pesanan Saya </ion-text>
+    <ion-grid >
+      <ion-row>
+
+        <ion-col class="grid-pesanan" routerLink="/profile/pembayaran">
+          <img class="pesanan-img" src="assets/images/profile/time-is-money.png">
+          <ion-text class="text-pesanan-detail"> Menunggu Pembayaran </ion-text>
+        </ion-col>
+
+        <ion-col class="grid-pesanan" col-6 routerLink="/profile/proses">
+          <img class="pesanan-img" src="assets/images/profile/box.png">
+          <ion-text class="text-pesanan-detail"> Dalam Proses </ion-text>
+        </ion-col>
+
+        <ion-col class="grid-pesanan" routerLink="/profile/dikirim">
+          <img class="pesanan-img" src="assets/images/profile/truck.png">
+          <ion-text class="text-pesanan-detail"> Sedang Dikirim </ion-text>
+        </ion-col>
+
+       </ion-row>
+    </ion-grid>
+
+    <hr class="line-horizontal">
+  </div>
+
+  <!-- Kupon, Wishlist, dan Pengaturan Akun -->
+  <div class="list ion-margin-top">
+    <ion-list>
+
+        <ion-item class="item" routerLink="/profile/kupon">
+          <ion-label class="label">
+            <h2 class="text-list">Kupon</h2>
+            <p class="text-list-detail">Cek kupon yang siap digunakan</p>
+          </ion-label>
+          <ion-icon class="siku" name="chevron-forward-outline"></ion-icon>       
+         </ion-item>
+
+        <ion-item class="item" routerLink="/profile/wishlist">
+          <ion-label class="label">
+            <h2 class="text-list">Wishlist</h2>
+            <p class="text-list-detail">Lihat produk yang sudah Anda wishlist</p>
+          </ion-label>
+          <ion-icon class="siku" name="chevron-forward-outline"></ion-icon>       
+        </ion-item>
+
+        <ion-item class="item" routerLink="/profile/pengaturan">
+          <ion-label class="label">
+            <h2 class="text-list">Pengaturan Akun</h2>
+            <p class="text-list-detail">Melihat dan mengelola info Anda</p>
+          </ion-label>
+            <ion-icon class="siku" name="chevron-forward-outline"></ion-icon>     
+        </ion-item>
+
+    </ion-list>
+  </div>
+
+  
+  <!-- Rekomendasi -->
+  <div class="rekomendasi ion-margin-top">
+    <ion-text class="text-pesanan"> Rekomendasi Untuk Anda</ion-text>
+    <ion-slides [options]="slideOpts" class="rekomendasi-item-slides">
+      <ion-slide class="rekomendasi-item-slide">
+        <ion-card class="ion-padding-bottom rekomendasi-item-card">
+          <img src="../assets/images/wayang.png">
+          <ion-card-header class="ion-no-padding rekomendasi-card-header">
+            <ion-text class="ion-text-left ion-no-margin ion-no-padding">
+              <p class="rekomendasi-title">Satuempat Central Kerajinan Miniatur Wayang Kulit Rama Shinta - Batik</p>
+              <p class="rekomendasi-price">Rp. 98.500</p>
+              <p class="rekomendasi-original-container"><span class="rekomendasi-price-original">Rp. 153.000</span><span class="rekomendasi-amount">35%</span></p>
+              <ion-grid class="ion-no-padding ion-no-margin">
+                <ion-row style="margin-top:5px;">
+                  <ion-img src="../assets/images/places.png" style="width:5%"></ion-img>
+                  <ion-text class="rekomendasi-place">
+                    Yogyakarta
+                  </ion-text>
+                </ion-row>
+                <ion-row>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-half" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-text class="rekomendasi-count-star">
+                    (6)
+                  </ion-text>
+                </ion-row>
+              </ion-grid>
+            </ion-text>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+      <ion-slide class="rekomendasi-item-slide">
+        <ion-card class="ion-padding-bottom rekomendasi-item-card">
+          <img src="../assets/images/almond-crispy.png">
+          <ion-card-header class="ion-no-padding rekomendasi-card-header">
+            <ion-text class="ion-text-left ion-no-margin ion-no-padding">
+              <p class="rekomendasi-title">Almond Crispy Cheese Original</p>
+              <p class="rekomendasi-price">Rp. 63.000</p>
+              <p class="rekomendasi-original-container"><span class="rekomendasi-price-original">Rp. 75.000</span><span class="rekomendasi-amount">15%</span></p>
+              <ion-grid class="ion-no-padding ion-no-margin">
+                <ion-row style="margin-top:5px;">
+                  <ion-img src="../assets/images/places.png" style="width:5%"></ion-img>
+                  <ion-text class="rekomendasi-place">
+                    Surabaya
+                  </ion-text>
+                </ion-row>
+                <ion-row>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-half" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-text class="rekomendasi-count-star">
+                    (6)
+                  </ion-text>
+                </ion-row>
+              </ion-grid>
+            </ion-text>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+      <ion-slide class="rekomendasi-item-slide">
+        <ion-card class="ion-padding-bottom rekomendasi-item-card">
+          <img src="../assets/images/kartika-sari.png">
+          <ion-card-header class="ion-no-padding rekomendasi-card-header">
+            <ion-text class="ion-text-left ion-no-margin ion-no-padding">
+              <p class="rekomendasi-title">Brownies Kartika Sari</p>
+              <p class="rekomendasi-price">Rp 96.000</p>
+              <p class="rekomendasi-original-container"><span class="rekomendasi-price-original">Rp. 105.000</span><span class="rekomendasi-amount">5%</span></p>
+              <ion-grid class="ion-no-padding ion-no-margin">
+                <ion-row style="margin-top:5px;">
+                  <ion-img src="../assets/images/places.png" style="width:5%"></ion-img>
+                  <ion-text class="rekomendasi-place">
+                    Bandung
+                  </ion-text>
+                </ion-row>
+                <ion-row>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-half" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-text class="rekomendasi-count-star">
+                    (6)
+                  </ion-text>
+                </ion-row>
+              </ion-grid>
+            </ion-text>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+    </ion-slides> 
+  </div>
+
+
 
 </ion-content>

@@ -18,8 +18,8 @@ const routes: Routes = [
         loadChildren: () => import('./keranjang/keranjang.module').then( m => m.KeranjangPageModule)
       },
       {
-        path: 'notifikasi',
-        loadChildren: () => import('./notifikasi/notifikasi.module').then( m => m.NotifikasiPageModule)
+        path: 'notif',
+        loadChildren: () => import('./notif/notif.module').then( m => m.NotifPageModule)
       },
       {
         path: 'home',
