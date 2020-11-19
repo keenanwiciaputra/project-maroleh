@@ -4,13 +4,42 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./main/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./main/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'main',
+    loadChildren: () => import('./main/main.module').then( m => m.MainPageModule)
+  },
+  {
+    path: 'notif',
+    loadChildren: () => import('./main/notif/notif.module').then( m => m.NotifPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./loginpage/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./loginpage/signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'forgot',
+    loadChildren: () => import('./loginpage/forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./loginpage/welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+
   {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)

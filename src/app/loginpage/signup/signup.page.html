@@ -1,0 +1,91 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="light" routerLink="/login">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <div>
+    <div>
+      <h1 class="title">Registasi</h1>
+    </div>
+  </div>
+  <div>
+    <ion-grid class="padding-form"> 
+      <ion-row >
+          <ion-col>
+            <div class="form">
+              <ion-input placeholder="Nama Depan"></ion-input>          
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="form">
+              <ion-input placeholder="Nama Belakang"></ion-input>
+            </div>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="form">
+            <ion-input placeholder="Alamat Email"></ion-input>          
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="form">
+            <ion-input type="password" placeholder="Kata Sandi"></ion-input>          
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="form">
+            <ion-input type="password" placeholder="Konfirmasi Sandi"></ion-input>          
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col size="3">
+          <div class="form">
+            <ion-input placeholder="+62"></ion-input>          
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="form">
+            <ion-input placeholder="Nomor Telepon"></ion-input>
+          </div>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+      </ion-col>
+      <ion-col>
+        <div class="ion-float-right">
+          <div class="btn-daftar">
+            <ion-button slot="end" class="btn-submit" routerLink="/welcome">Daftar</ion-button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </div>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="ion-text-center">
+            <h1 class="term-of-service" routerLink="/signup">Dengan mendaftar anda telah menyetujui</h1>
+            <h1 class="term-of-service" routerLink="/signup">ketentuan dan aturan dari <b>marOleh</b></h1>                  
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</div>
+  
+</ion-content>

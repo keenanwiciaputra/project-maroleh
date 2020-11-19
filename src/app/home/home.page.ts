@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +14,6 @@ export class HomePage {
     centeredSlides: true
   };
 
-  constructor(private router: Router) {}
+  constructor() {}
 
-  goToCartPage() {
-    this.router.navigateByUrl('/cart');
-  }
 }
