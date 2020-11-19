@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'main',
     pathMatch: 'full'
   },
   {
@@ -40,10 +40,6 @@ const routes: Routes = [
     loadChildren: () => import('./loginpage/welcome/welcome.module').then( m => m.WelcomePageModule)
   },
 
-  {
-    path: 'cart',
-    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
-  },
   {
     path: 'payment',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)

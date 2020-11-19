@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: KeranjangPage
+  },
+  {
+    path: 'keranjang-detail',
+    loadChildren: () => import('./keranjang-detail/keranjang-detail.module').then( m => m.KeranjangDetailPageModule)
   }
 ];
 
