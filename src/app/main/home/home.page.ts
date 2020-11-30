@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
   segmentChecker : boolean;
+  userID: string;
+  userEmail: string;
 
   slideOpts = {
     initialSlide: 0,
@@ -27,9 +31,33 @@ export class HomePage implements OnInit {
     this.segmentChecker = !this.segmentChecker;
   }
 
-  constructor() { }
+  constructor(
+    private navCtrl: NavController,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    this.authService.userDetails().subscribe(res=> {
+      console.log('res:', res);
+      if(res !== null) {
+        this.userEmail = res.email;
+      } else {
+        this.navCtrl.navigateBack('/login');
+      }
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  logout() {
+    this.authService.logoutUser()
+      .then(res=> {
+        console.log(res);
+        this.navCtrl.navigateBack('/login');
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
 }

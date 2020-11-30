@@ -57,7 +57,7 @@
       <ion-grid *ngIf="!segmentChecker">
         <!-- BARIS PERTAMA -->
         <ion-row style="margin-top:10px;">
-          <ion-col size="3" class="col-container">
+          <ion-col size="3" class="col-container" routerLink="/home/sub-item">
             <div class="icon-container">
               <ion-img class="icon-img" src="../assets/images/spoon-and-fork.png" style="width:65%"></ion-img>
             </div>
@@ -299,4 +299,9 @@
     </div>
     </ion-content>
   </ion-content>
+  <ion-footer (click)="logout()">
+    <ion-toolbar color="secondary">
+      <ion-title>Log out</ion-title>
+    </ion-toolbar>
+  </ion-footer>
 
