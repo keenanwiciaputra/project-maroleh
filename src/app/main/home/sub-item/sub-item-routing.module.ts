@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: SubItemPage
+  },
+  {
+    path: 'products/:id',
+    loadChildren: () => import('../../../products/products.module').then( m => m.ProductsPageModule)
   }
+
 ];
 
 @NgModule({

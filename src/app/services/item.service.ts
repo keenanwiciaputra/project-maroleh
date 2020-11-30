@@ -45,4 +45,8 @@ export class ItemService {
       default: return this.itemRef;
     }
   }
+
+  getDetailItem(id): AngularFireList<Item> {
+    return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
+  }
 }

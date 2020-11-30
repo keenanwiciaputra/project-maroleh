@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: SubCityPage
+  },
+  {
+    path: ':kategori',
+    loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
   }
+
 ];
 
 @NgModule({
