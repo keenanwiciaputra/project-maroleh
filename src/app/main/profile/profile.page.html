@@ -7,10 +7,10 @@
 <ion-content>
   <!-- Foto Profile, Nama dan Email-->
   <div class= "back-profile">
-      <img class="photo-profile" src="assets/images/profile/18.jpg">
+      <img class="photo-profile" src= "{{ user?.foto }}">
       <div class="profile">
-          <ion-text class="name-profile" > Gabriel </ion-text>
-          <ion-text class="email-profile" > gabriel.j@gmail.com </ion-text>
+          <ion-text class="name-profile" > {{ user?.namadepan }} {{ user?.namabelakang }} </ion-text>
+          <ion-text class="email-profile" > {{ userEmail }} </ion-text>
        </div>
   </div>
   
@@ -86,6 +86,13 @@
             <ion-icon class="siku" name="chevron-forward-outline"></ion-icon>     
         </ion-item>
 
+        <ion-item class="item" (click)="logout()">
+          <ion-label class="label">
+            <h2 class="text-list">Log Out</h2>
+            <p class="text-list-detail">Keluar dari akun</p>
+          </ion-label>
+            <ion-icon class="siku" name="chevron-forward-outline"></ion-icon>     
+        </ion-item>
     </ion-list>
   </div>
 
