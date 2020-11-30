@@ -15,6 +15,14 @@
   .diskon-title {
     font-size: 14px;
     font-family: 'Helvetica';
+    // BIKIN JADI 2 BARIS MAX
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    line-height: 16px; 
+    max-height: 32px; 
+    -webkit-box-orient: vertical;
   }
   
   .diskon-price {
@@ -73,7 +81,12 @@
   }
   
   .diskon-item-card {
-    height: 305px;
+    height: 320px;
     width: 100%;
   }
 
+  img {
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+  }

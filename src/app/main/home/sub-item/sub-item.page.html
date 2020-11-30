@@ -19,12 +19,13 @@
           <ng-container *ngFor="let item of items">
             <ion-col size="6" size-sm="4">
               <ion-card class="ion-padding-bottom diskon-item-card">
-                <img src="../assets/images/almond-crispy.png" class="diskon-container">
+                <img [src]="item.img1" class="diskon-container">
                 <ion-card-header class="ion-no-padding diskon-card-header">
                   <ion-text class="ion-text-left ion-no-margin ion-no-padding">
                     <p class="diskon-title">{{ item.nama }}</p>
-                    <p class="diskon-price">{{ item.harga }}</p>
-                    <p class="diskon-original-container"><span class="diskon-price-original">{{ item.harga }}</span><span class="diskon-amount">15%</span></p>
+                    <p class="diskon-price" *ngIf="item.diskon == 1">Rp. {{ item.harga*(100-item.disc_amount)/100 }}</p>
+                    <p class="diskon-price" *ngIf="item.diskon == 0">Rp. {{ item.harga }}</p>
+                    <p class="diskon-original-container" *ngIf="item.diskon == 1"><span class="diskon-price-original">Rp. {{ item.harga }}</span><span class="diskon-amount">{{ item.disc_amount }}%</span></p>
                     <ion-grid class="ion-no-padding ion-no-margin">
                       <ion-row style="margin-top:5px;">
                         <ion-img src="../../../assets/images/places.png" style="width:5%"></ion-img>
@@ -32,12 +33,72 @@
                           {{ item.lokasi }}
                         </ion-text>
                       </ion-row>
-                      <ion-row>
+                      <ion-row *ngIf="item.bintang >=2 && item.bintang < 2.5">
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                        <ion-text class="diskon-count-star">
+                          (6)
+                        </ion-text>
+                      </ion-row>
+                      <ion-row *ngIf="item.bintang >=2.5 && item.bintang < 3">
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-half" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                        <ion-text class="diskon-count-star">
+                          (6)
+                        </ion-text>
+                      </ion-row>
+                      <ion-row *ngIf="item.bintang >=3 && item.bintang < 3.5">
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                        <ion-text class="diskon-count-star">
+                          (6)
+                        </ion-text>
+                      </ion-row>
+                      <ion-row *ngIf="item.bintang >= 3.5 && item.bintang < 4">
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-half" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                        <ion-text class="diskon-count-star">
+                          (6)
+                        </ion-text>
+                      </ion-row>
+                      <ion-row *ngIf="item.bintang >=4 && item.bintang < 4.5">
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                        <ion-text class="diskon-count-star">
+                          (6)
+                        </ion-text>
+                      </ion-row>
+                      <ion-row *ngIf="item.bintang >=4.5 && item.bintang < 5">
                         <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                         <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                         <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                         <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                         <ion-icon name="star-half" color="warning" class="diskon-star"></ion-icon>
+                        <ion-text class="diskon-count-star">
+                          (6)
+                        </ion-text>
+                      </ion-row>
+                      <ion-row *ngIf="item.bintang == 5">
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                        <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                         <ion-text class="diskon-count-star">
                           (6)
                         </ion-text>

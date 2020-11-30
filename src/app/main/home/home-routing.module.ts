@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./sub-city/sub-city.module').then( m => m.SubCityPageModule)
   },
   {
-    path: 'sub-item',
+    path: 'sub-item/:kategori',
     loadChildren: () => import('./sub-item/sub-item.module').then( m => m.SubItemPageModule)
   }
 
