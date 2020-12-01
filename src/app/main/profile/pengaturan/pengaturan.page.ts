@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -26,10 +26,10 @@ export class PengaturanPage implements OnInit {
 
   imgSrc: string;
   selectedImage: any = null;
-
   imgDB: string;
-
   imgUrl: string;
+
+  @ViewChild('f', null) f: NgForm;
 
   constructor(
     private storage: AngularFireStorage,
@@ -51,10 +51,15 @@ export class PengaturanPage implements OnInit {
           this.user = profile;
           this.imgSrc =  this.user.foto;
           console.log(this.imgSrc);
-      });
+        });
+        
+
+        setTimeout( () => {
+          this.f.setValue(this.user);
+        })
       }
       else {
-        this.navCtrl.navigateBack('');
+        this.navCtrl.navigateBack('/login');
       }
     }, err => {
       console.log(err);
@@ -63,22 +68,27 @@ export class PengaturanPage implements OnInit {
 
   onSubmit(form: NgForm){
     console.log(form);
-    var filePath = 'user/foto/'+ this.userID;
+
+    if(form.value.foto != null) {
+      var filePath = 'user/foto/'+ this.userID;
     
-    const fileRef = this.storage.ref(filePath);
-    this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
-      finalize(() => {
-        fileRef.getDownloadURL().subscribe((url) => {
-          this.imgUrl = url;
-          form.value['foto'] = this.imgUrl;
-          this.userService.update(this.userID, form.value).then(res => {
-              console.log(form.value['foto'] );
-              this.router.navigateByUrl('/main/tabs/profile');
+      const fileRef = this.storage.ref(filePath);
+      this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe((url) => {
+            this.imgUrl = url;
+            form.value['foto'] = this.imgUrl;
             })
-            form.reset();
-          })
-      })
-    ).subscribe();
+        })
+      ).subscribe();
+    }
+
+    this.userService.update(this.userID, form.value).then(res => {
+      this.router.navigateByUrl('/main/tabs/profile');
+    }).catch(error => console.log(error));
+
+    form.reset();
+    this.router.navigateByUrl('/main/tabs/profile');
   }
 
     // this.userService.update(this.key, form.value).then(res => {

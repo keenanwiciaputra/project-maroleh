@@ -10,35 +10,27 @@
 </ion-header>
 
 <ion-content>
-  <div class="note" *ngIf="displayMode === 1">
+  <ng-container *ngFor="let item of order">
+  <div class="note" *ngIf="item.status != 0">
     <img class="img-note" src="assets/images/profile/notepad.png">
     <ion-text class="text-note"> Belum ada pesanan </ion-text>
-    <ion-button class="btn-belanja">Mulai Belanja</ion-button>
+    <ion-button class="btn-belanja"> Mulai Belanja </ion-button>
   </div>
-
-  <div class="note-ada" *ngIf="displayMode === 2">
+  <div class="note-ada" *ngIf="item.status == 0">
     <ion-card class="ion-padding-bottom note-item-card">
       <div class="note-ada">
         <ion-text class="note-card-header"> Nomor Order </ion-text>
-        <ion-text class="note-nomor-order">277789</ion-text>
-        <img class="note-img-card" src="../assets/images/wayang.png">
-        <div class="note-text-card">
-         <ion-text class="note-title-card">Satuempat Central Kerajinan Miniatur Wayang Kulit Rama Shinta - Batik</ion-text>
-         <ion-text class="note-harga-card">Rp. 98.500</ion-text>
-         <ion-text class="note-jumlah-card">Jumlah : 1</ion-text>
-        </div>  
+        <ion-text class="note-nomor-order">{{ item.nomororder }}</ion-text>
+        <img class="note-img-card" src="{{ item.img1 }}">
+          <div class="note-text-card">
+          <ion-text class="note-title-card">{{  item.nama }}</ion-text>
+          <ion-text class="note-harga-card">Rp. {{ item.harga }}</ion-text>
+          <ion-text class="note-jumlah-card">Jumlah  : {{ item.jumlah }}</ion-text>
+          <ion-text class="note-jumlah-card">No Resi : {{ item.noresi }}</ion-text>
+          <ion-text class="note-jumlah-card">Status  : {{ item.statuskirim }}</ion-text>
+          </div> 
       </div>
-      
     </ion-card>
   </div>
-
-  <div class="test">
-    <ion-button *ngIf="displayMode === 1" (click)="onDisplayModeChange(2)">
-      Kosong  
-    </ion-button>
-    <ion-button *ngIf="displayMode === 2" (click)="onDisplayModeChange(1)">
-      Ada
-    </ion-button>
-  </div>
-
+  </ng-container>
 </ion-content>
