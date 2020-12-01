@@ -6,26 +6,19 @@ import { ItemService } from 'src/app/services/item.service';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.scss'],
+  selector: 'app-wishlist',
+  templateUrl: './wishlist.page.html',
+  styleUrls: ['./wishlist.page.scss'],
 })
-export class ProfilePage implements OnInit {
-
-  slideOpts = {
-    initialSlide: 0,
-    speed: 400,
-    width:170,
-    centeredSlides: true
-  };
+export class WishlistPage implements OnInit {
 
   userEmail: string;
   userID: string;
   query=[];
 
   user: any;
-  rekom: any;
-  rekomItem: any;
+  wish: any;
+  wishItem: any;
 
   constructor(
     private navCtrl: NavController,
@@ -46,23 +39,21 @@ export class ProfilePage implements OnInit {
           console.log(profile);
         });
 
-        this.itemsService.getAllRekom(this.userID).snapshotChanges().pipe(
+        this.itemsService.getAllWishlist(this.userID).snapshotChanges().pipe(
           map(changes =>
             changes.map(c => ({key: c.payload.key, ...c.payload.val()}))
           )
         ).subscribe( data => {
-          this.rekom = data;
-          console.log(this.rekom);
-
+          this.wish = data;
+          console.log(this.wish);
           for(let i=0;i<data.length ;i++){  //How to properly iterate here!!
-            this.itemsService.getAllRekomItem(this.rekom[i].id).snapshotChanges().pipe(
+            this.itemsService.getAllWishlistItem(this.wish[i].id).snapshotChanges().pipe(
               map(changes =>
                 changes.map(c => ({key: c.payload.key, ...c.payload.val()}))
               )
             ).subscribe( data => {
-              this.rekomItem = data;
-              this.query[i]= this.rekomItem;
-
+              this.wishItem = data;
+              this.query[i]= this.wishItem;
             });
           }console.log(this.query);
         });
@@ -75,14 +66,4 @@ export class ProfilePage implements OnInit {
     });
   }
 
-  logout() {
-    this.authSrv.logoutUser()
-      .then(res=> {
-        console.log(res);
-        this.navCtrl.navigateBack('/login');
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
 }

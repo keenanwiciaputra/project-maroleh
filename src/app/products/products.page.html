@@ -11,21 +11,21 @@
 
 <ion-content [fullscreen]="true">
   <ion-content>
-    <div class="page-container">
-      <ion-slides [options]="slideOpts" class="carousel-slides">
-        <ion-slide>
-            <img src="../assets/images/detail-product/carou1.jpg">
-        </ion-slide>
-        <ion-slide>
-            <img src="../assets/images/detail-product/carou2.jpg">
-        </ion-slide>
-        <ion-slide>
-            <img src="../assets/images/detail-product/carou3.jpg">
-        </ion-slide>
-      </ion-slides>
-    </div>
     <div>
       <ion-grid *ngFor="let item of detailItems">
+        <div class="page-container">
+          <ion-slides [options]="slideOpts" class="carousel-slides">
+            <ion-slide>
+                <img src="{{ item.img1 }}">
+            </ion-slide>
+            <ion-slide>
+                <img src="{{ item.img2 }}">
+            </ion-slide>
+            <ion-slide>
+                <img src="{{ item.img3 }}">
+            </ion-slide>
+          </ion-slides>
+        </div>
         <ion-row>
           <ion-col>
             <div>

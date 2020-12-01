@@ -42,7 +42,12 @@ const routes: Routes = [
   {
     path: 'products/:id',
     loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./main/profile/wishlist/wishlist.module').then( m => m.WishlistPageModule)
   }
+
 
 ];
 

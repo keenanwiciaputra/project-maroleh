@@ -7,7 +7,10 @@ import { Item } from './item';
 })
 export class ItemService {
   private dbPath = '/item';
+  private dbRekom = '/rekomendasi';
+  private dbWish = '/wishlist';
   itemRef: AngularFireList<Item> = null;
+  itemRekom: AngularFireList<Item> = null;
   itemMakananRef: AngularFireList<Item> = null;
   itemPakaianRef: AngularFireList<Item> = null;
   itemAksesorisRef: AngularFireList<Item> = null;
@@ -21,6 +24,7 @@ export class ItemService {
     private db: AngularFireDatabase
   ) {
     this.itemRef = db.list(this.dbPath);
+    this.itemRekom = db.list(this.dbRekom);
     this.itemMakananRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Makanan & Minuman"));
     this.itemPakaianRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Pakaian"));
     this.itemAksesorisRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Aksesoris"));
@@ -49,4 +53,23 @@ export class ItemService {
   getDetailItem(id): AngularFireList<Item> {
     return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
   }
+
+  getAllRekom(userid : string): AngularFireList<Item> {
+    this.dbRekom = '/rekomendasi/'+userid; 
+    return this.db.list(this.dbRekom);
+  }
+
+  getAllRekomItem(id: string): AngularFireList<Item> {
+    return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
+  }
+
+  getAllWishlist(userid : string): AngularFireList<Item> {
+    this.dbWish = '/wishlist/'+userid; 
+    return this.db.list(this.dbWish);
+  }
+
+  getAllWishlistItem(id: string): AngularFireList<Item> {
+    return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
+  }
+
 }

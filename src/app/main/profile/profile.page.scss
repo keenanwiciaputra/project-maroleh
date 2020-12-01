@@ -217,6 +217,7 @@
     display:block;
     margin-left:auto;
     margin-right:auto;
+    margin-top: 80px;
   }
 
   .rekomendasi-card-header {
@@ -225,16 +226,23 @@
   }
   
   .rekomendasi-item-slides {
-    padding-left:3%;
+    padding-left:2%;
   }
   
   .rekomendasi-title {
-    font-size: 8px;
+    font-size: 14px;
     font-family: 'Helvetica';
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    line-height: 16px; 
+    max-height: 32px; 
+    -webkit-box-orient: vertical;
   }
   
   .rekomendasi-price {
-    font-size: 10px;
+    font-size: 12px;
     font-family: 'Helvetica';
     margin-top:8px;
     margin-bottom:0px;
@@ -250,7 +258,7 @@
   .rekomendasi-price-original {
     text-decoration: line-through;
     color: #B4B4B4;
-    font-size: 8px;
+    font-size: 10px;
     font-family: 'Helvetica';
     font-weight: bold;
   }
@@ -264,24 +272,24 @@
     padding-left: 5px;
     margin-left:3px;
     color: #F70000;
-    font-size: 6px;
+    font-size: 9px;
     font-family: 'Helvetica';
     font-weight: bold;
   }
   
   .rekomendasi-place {
-    font-size: 6px;
+    font-size: 10px;
     font-weight:bold;
     font-family: 'Helvetica';
     margin-left: 3px;
   }
   
   .rekomendasi-star {
-    font-size: 10px;
+    font-size: 13px;
   }
   
   .rekomendasi-count-star {
-    font-size: 6px;
+    font-size: 10px;
     font-weight:bold;
     font-family: 'Helvetica';
     margin-left: 3px;
