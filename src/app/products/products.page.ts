@@ -13,14 +13,14 @@ export class ProductsPage implements OnInit {
   slideOpts = {
     initialSlide: 0,
     speed: 400,
-    width:420,
+    width: 420,
     centeredSlides: true
   };
 
   slideOpts2 = {
     initialSlide: 0,
     speed: 400,
-    width:170,
+    width: 170,
     centeredSlides: true
   };
 
@@ -31,7 +31,7 @@ export class ProductsPage implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
-      if(!paramMap.has('id')) { return; } 
+      if (!paramMap.has('id')) { return; }
       const itemId = paramMap.get('id');
       console.log(itemId);
       this.itemsService.getDetailItem(itemId).snapshotChanges().pipe(
