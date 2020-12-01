@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      marOleh
+    </ion-title>
+    <ion-buttons [routerLink]="['/cart']" slot="primary" class="ion-padding-end">
+      <ion-icon slot="icon-only" name="cart-outline" ></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-content>
+    <ion-searchbar> 
+
+    </ion-searchbar>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-card>
+          <img src="../assets/images/carousel-1.png">
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <img src="../assets/images/carousel-2.png">
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <img src="../assets/images/carousel-2.png">
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+    <div class="poin ion-margin-top">
+      <ion-grid class="ion-no-padding ion-no-margin">
+        <ion-row>
+          <ion-img src="../assets/images/poin-star.png" style="width:18px"></ion-img>
+          <ion-text class="poin-text">
+            Poin Saya 0 pts
+          </ion-text>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div>
+      <ion-segment value="favorit" class="ion-margin-top">
+        <ion-segment-button value="favorit">
+          <ion-label class="ion-text-capitalize segment-label">Favorit Kamu</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="daerah">
+          <ion-label class="ion-text-capitalize segment-label">Daerah</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    </ion-content>
+  </ion-content>
