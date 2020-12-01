@@ -28,8 +28,9 @@ export class AuthService {
           namadepan: value.namadepan,
           namabelakang: value.namabelakang,
           notelepon: value.notelepon,
-          tgllahir: null,
-          jeniskelamin: null,
+          tgllahir: '',
+          jeniskelamin: '',
+          alamat: '',
           foto: 'https://firebasestorage.googleapis.com/v0/b/maroleh-74f45.appspot.com/o/user%2Ffoto%2Fdefault.jpg?alt=media&token=b6e5f43b-ff89-4c0e-afa0-c6cacbf9caac'
         })
       }

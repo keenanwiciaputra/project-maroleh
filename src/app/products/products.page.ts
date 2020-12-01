@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { map } from 'rxjs/operators';
 import { ItemService } from '../services/item.service';
 
@@ -26,8 +27,10 @@ export class ProductsPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private itemsService: ItemService
+    private itemsService: ItemService,
+    private alertCtrl: AlertController
   ) { }
+  
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
@@ -43,5 +46,17 @@ export class ProductsPage implements OnInit {
         console.log(data);
       });
     });
+  }
+
+  async showAlert() {
+    console.log('tes');
+    await this.alertCtrl.create({
+      message:"Barang berhasil ditambahkan ke keranjang",
+      buttons: [
+        {
+          text: "OK" 
+        }
+      ]
+    }).then(res => res.present());
   }
 }
