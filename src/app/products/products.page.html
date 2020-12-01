@@ -1,7 +1,7 @@
 <ion-header no-border>
   <ion-toolbar mode="ios">
       <ion-buttons slot="start">
-        <ion-back-button text="" defaultHref="home" color="light"></ion-back-button>
+        <ion-back-button text="" defaultHref="/main" color="light"></ion-back-button>
       </ion-buttons>
       <ion-buttons slot="primary" class="ion-padding-end">
         <ion-icon slot="icon-only" name="cart-outline" class="icon-toolbar"></ion-icon>
@@ -11,25 +11,25 @@
 
 <ion-content [fullscreen]="true">
   <ion-content>
-    <div class="page-container">
-      <ion-slides [options]="slideOpts" class="carousel-slides">
-        <ion-slide>
-            <img src="../assets/images/detail-product/carou1.jpg">
-        </ion-slide>
-        <ion-slide>
-            <img src="../assets/images/detail-product/carou2.jpg">
-        </ion-slide>
-        <ion-slide>
-            <img src="../assets/images/detail-product/carou3.jpg">
-        </ion-slide>
-      </ion-slides>
-    </div>
     <div>
-      <ion-grid>
+      <ion-grid *ngFor="let item of detailItems">
+        <div class="page-container">
+          <ion-slides [options]="slideOpts" class="carousel-slides">
+            <ion-slide>
+                <img src="{{ item.img1 }}">
+            </ion-slide>
+            <ion-slide>
+                <img src="{{ item.img2 }}">
+            </ion-slide>
+            <ion-slide>
+                <img src="{{ item.img3 }}">
+            </ion-slide>
+          </ion-slides>
+        </div>
         <ion-row>
           <ion-col>
             <div>
-              <h1 class="harga-item">Rp 98.500</h1>
+              <h1 class="harga-item">Rp. {{ item.harga }}</h1>
             </div>
           </ion-col>
           <ion-col>
@@ -40,13 +40,13 @@
         </ion-row>
         <ion-row class="padding">
           <div>
-            <h1 class="judul-item">Almond Crispy Cheese Original</h1>
+            <h1 class="judul-item">{{ item.nama }}</h1>
           </div>
         </ion-row>
         <ion-row class="padding">
           <ion-col size="3">
             <div>
-              <h1 class="terjual">Terjual 124</h1>
+              <h1 class="terjual">Terjual {{ item.terjual }}</h1>
             </div>
           </ion-col>
           <ion-col size="0">
@@ -54,7 +54,7 @@
           </ion-col>
           <ion-col size="2">
             <div>
-              <h1 class="rating">4.9</h1>
+              <h1 class="rating">{{ item.bintang }}</h1>
             </div>
           </ion-col>
         </ion-row>
@@ -65,7 +65,7 @@
             </div>
           </ion-col>
           <ion-col size="4">
-            <h1 class="lokasi">Yogyakarta</h1>
+            <h1 class="lokasi">{{ item.lokasi }}</h1>
           </ion-col>
         </ion-row>
         <ion-item-divider style="margin-top: -20px; margin-bottom: 15px;">
@@ -85,7 +85,7 @@
           </ion-col>
           <ion-col>
             <div class="ion-float-right">
-              <h1 class="informasi-item">400g</h1>
+              <h1 class="informasi-item">{{ item.berat }}</h1>
             </div>
           </ion-col>
         </ion-row>
@@ -97,7 +97,7 @@
           </ion-col>
           <ion-col>
             <div class="ion-float-right">
-              <h1 class="informasi-item">Baru</h1>
+              <h1 class="informasi-item">{{ item.kondisi }}</h1>
             </div>
           </ion-col>
         </ion-row>
@@ -109,7 +109,7 @@
           </ion-col>
           <ion-col>
             <div class="ion-float-right">
-              <h1 class="informasi-item">1 Buah</h1>
+              <h1 class="informasi-item">{{ item.min }} Buah</h1>
             </div>
           </ion-col>
         </ion-row>
@@ -121,7 +121,7 @@
           </ion-col>
           <ion-col>
             <div class="ion-float-right">
-              <h1 class="informasi-item">Makanan</h1>
+              <h1 class="informasi-item">{{ item.kategori }}</h1>
             </div>
           </ion-col>
         </ion-row>
@@ -137,10 +137,7 @@
         <ion-row>
           <ion-col>
             <div>
-              <h1 class="informasi-item">Almond Crispy Cheese ini merupakan snack yang dibuat home made
-                dan salah satu snack khas Surabaya yang tidak boleh dilewatkan
-                untuk dicoba. Paduan kacang almond dan keju disetiap lembaran
-                tipisnya membuat kita ketagihan dan tidak bisa berhenti menikmatinya.</h1>
+              <h1 class="informasi-item">{{ item.deskripsi }}</h1>
             </div>
           </ion-col>
         </ion-row>
@@ -258,7 +255,7 @@
     <!-- end of carousel -->
   </ion-content>
 </ion-content>
-<ion-footer (click)="logout()">
+<ion-footer>
   <ion-toolbar>
     <ion-grid>
       <ion-row>

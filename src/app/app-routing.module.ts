@@ -40,9 +40,15 @@ const routes: Routes = [
     loadChildren: () => import('./loginpage/welcome/welcome.module').then( m => m.WelcomePageModule)
   },
   {
-    path: 'detail-product',
-    loadChildren: () => import('./product/detail-product/detail-product.module').then( m => m.DetailProductPageModule)
+    path: 'products/:id',
+    loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
   },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./main/profile/wishlist/wishlist.module').then( m => m.WishlistPageModule)
+  }
+
+
 ];
 
 @NgModule({
