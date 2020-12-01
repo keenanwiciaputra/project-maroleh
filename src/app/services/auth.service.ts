@@ -27,7 +27,6 @@ export class AuthService {
         firebase.database().ref('user/' + this.user_id).set({
           namadepan: value.namadepan,
           namabelakang: value.namabelakang,
-          kodetelepon: value.kodetelepon,
           notelepon: value.notelepon,
           tgllahir: null,
           jeniskelamin: null,
