@@ -17,29 +17,27 @@
   </ion-item>
 
 
-  <ion-item class="cart-img" lines="full" style="margin-top: 5px">
+  <ion-item class="cart-img" lines="full" style="margin-top: 5px" *ngFor="let item of query">
 
     <ion-checkbox color="light"style="width: 6.5%;height: auto"> </ion-checkbox>
 
-    <ion-img style=" vertical-align:top;width: 30%;margin: 4%"
-             src="https://ecs7.tokopedia.net/img/cache/700/product-1/2020/5/29/3256573/3256573_0de441d4-b9a2-4b32-aa0a-c3a0d787b2ba_1000_1000">
-    </ion-img>
+    <img style=" vertical-align:top;width: 30%;margin: 4%" src="{{ item[0].img1 }}">
 
     <div>
       <ion-grid>
         <ion-row>
           <span style="margin-top:2%;margin-bottom:10px;font-weight: bold">
-            Almond Crispy Cheese Khas Sur ...
+            {{ item[0].nama }}
           </span>
         </ion-row>
         <ion-row>
           <span style="margin-bottom:10px;font-size: small;">
-            Surabaya
+            {{ item[0].khas }}
           </span>
         </ion-row>
         <ion-row>
           <span style="font-weight: bold;color:orange;font-size: medium;">
-            Rp 63.000
+            RP. {{ item[0].harga }}
           </span>
         </ion-row>
 

@@ -9,6 +9,7 @@ export class ItemService {
   private dbPath = '/item';
   private dbRekom = '/rekomendasi';
   private dbWish = '/wishlist';
+  private dbCart = '/cart';
   itemRef: AngularFireList<Item> = null;
   itemRekom: AngularFireList<Item> = null;
   itemMakananRef: AngularFireList<Item> = null;
@@ -69,6 +70,15 @@ export class ItemService {
   }
 
   getAllWishlistItem(id: string): AngularFireList<Item> {
+    return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
+  }
+
+  getAllCart(userid : string): AngularFireList<Item> {
+    this.dbCart = '/cart/'+userid; 
+    return this.db.list(this.dbCart);
+  }
+
+  getAllCartItem(id: string): AngularFireList<Item> {
     return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
   }
 
