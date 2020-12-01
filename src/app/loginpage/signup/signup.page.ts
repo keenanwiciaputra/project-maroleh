@@ -52,9 +52,6 @@ export class SignupPage implements OnInit {
       namabelakang: new FormControl('', Validators.compose( [
         Validators.required
       ])),
-      kodetelepon: new FormControl('', Validators.compose( [
-        Validators.required
-      ])),
       notelepon: new FormControl('', Validators.compose( [
         Validators.required
       ])),
