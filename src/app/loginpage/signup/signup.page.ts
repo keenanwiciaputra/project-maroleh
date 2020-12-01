@@ -64,6 +64,9 @@ export class SignupPage implements OnInit {
       foto: new FormControl('', Validators.compose( [
  
       ])),
+      alamat: new FormControl('', Validators.compose( [
+ 
+      ])),
     });
   }
 
