@@ -13,46 +13,46 @@
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="img-pengaturan">
       <img class="img-profile" [src]="imgSrc">
-      <ion-buttons class="btn-upload">
+      <ion-buttons class="btn-upload" for="fileUp">
         <ion-icon name="arrow-up-circle"></ion-icon>
       </ion-buttons>
-      <ion-input type="file" accept="image/*" (change)="changeListener($event)" ngModel name="foto"></ion-input>
+      <ion-input type="file" accept="image/*" (change)="changeListener($event)" ngModel name="foto" id="fileUp"></ion-input>
     </div>
     <div class="text-pengaturan">
       
       <ion-item>
         <ion-label class="text-label" position="floating">Nama Depan</ion-label>
-        <ion-input clas="text-input" value = "      " ngModel name="namadepan">{{ user?.namadepan }}</ion-input>
+        <ion-input class="text-input" type="text" ngModel name="namadepan"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label class="text-label" position="floating">Nama Belakang</ion-label>
-        <ion-input clas="text-input" value = "       " ngModel name="namabelakang"> {{ user?.namabelakang }}</ion-input>
+        <ion-input class="text-input" type="text" ngModel name="namabelakang"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label class="text-label" position="floating">Tanggal Lahir</ion-label>
-        <ion-input value = "" ngModel name="tgllahir"> {{ user?.tgllahir }}</ion-input>
+        <ion-input type="text" ngModel name="tgllahir"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label class="text-label" position="floating">Jenis Kelamin</ion-label>
-        <ion-input value = " " ngModel name="jeniskelamin"> {{ user?.jeniskelamin }}</ion-input>
+        <ion-input type="text" ngModel name="jeniskelamin"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label class="text-label" position="floating">Alamat</ion-label>
-        <ion-input value = " " ngModel name="alamat">{{ user?.alamat }}</ion-input>
+        <ion-input type="text" ngModel name="alamat"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label class="text-label" position="floating">Email</ion-label>
-        <ion-input value = "{{ userEmail }}" disabled="true"></ion-input>
+        <ion-input value="{{ userEmail }}" disabled="true"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label class="text-label" position="floating">Nomor Telefon</ion-label>
-        <ion-input value = "{{ user?.notelepon }}" ngModel name="notelepon"> {{ user?.notelepon }}</ion-input>
+        <ion-input type="text" ngModel name="notelepon"></ion-input>
       </ion-item>
 
       <div class="btn-pengaturan">
