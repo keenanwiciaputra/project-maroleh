@@ -10,47 +10,55 @@
 </ion-header>
 
 <ion-content>
-  <div class="img-pengaturan">
-    <img class="img-profile" src="assets/images/profile/18.jpg">
-    <ion-buttons class="btn-upload">
-      <ion-icon name="arrow-up-circle"></ion-icon>
-    </ion-buttons>
-  </div>
-  <div class="text-pengaturan">
-    
-    <ion-item>
-      <ion-label class="text-label" position="floating">Nama</ion-label>
-      <ion-input clas="text-input"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label class="text-label" position="floating">Tanggal Lahir</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label class="text-label" position="floating">Jenis Kelamin</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label class="text-label" position="floating">Alamat</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label class="text-label" position="floating">Email</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label class="text-label" position="floating">Nomor HP</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-
-    <div class="btn-pengaturan">
-      <ion-button slot="end" class="btn-submit">Ubah</ion-button>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="img-pengaturan">
+      <img class="img-profile" [src]="imgSrc">
+      <ion-buttons class="btn-upload">
+        <ion-icon name="arrow-up-circle"></ion-icon>
+      </ion-buttons>
+      <ion-input type="file" accept="image/*" (change)="changeListener($event)" ngModel name="foto"></ion-input>
     </div>
-  </div>
+    <div class="text-pengaturan">
+      
+      <ion-item>
+        <ion-label class="text-label" position="floating">Nama Depan</ion-label>
+        <ion-input clas="text-input" value = "      " ngModel name="namadepan">{{ user?.namadepan }}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Nama Belakang</ion-label>
+        <ion-input clas="text-input" value = "       " ngModel name="namabelakang"> {{ user?.namabelakang }}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Tanggal Lahir</ion-label>
+        <ion-input value = "" ngModel name="tgllahir"> {{ user?.tgllahir }}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Jenis Kelamin</ion-label>
+        <ion-input value = " " ngModel name="jeniskelamin"> {{ user?.jeniskelamin }}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Alamat</ion-label>
+        <ion-input value = " " ngModel name="alamat">{{ user?.alamat }}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Email</ion-label>
+        <ion-input value = "{{ userEmail }}" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Nomor Telefon</ion-label>
+        <ion-input value = "{{ user?.notelepon }}" ngModel name="notelepon"> {{ user?.notelepon }}</ion-input>
+      </ion-item>
+
+      <div class="btn-pengaturan">
+        <ion-button slot="end" type ="submit" class="btn-submit">Ubah</ion-button>
+      </div>
+    </div>
+  </form>
 
 </ion-content>

@@ -169,8 +169,15 @@
   }
   
   .diskon-title {
-    font-size: 8px;
+    font-size: 10px;
     font-family: 'Helvetica';
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    line-height: 12px; 
+    max-height: 24px; 
+    -webkit-box-orient: vertical;
   }
   
   .diskon-price {
@@ -229,7 +236,7 @@
   }
   
   .diskon-item-card {
-    height: 250px;
+    height: 240px;
     width: 100%;
   }
   

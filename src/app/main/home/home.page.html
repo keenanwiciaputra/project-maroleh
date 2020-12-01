@@ -55,23 +55,23 @@
       <ion-grid *ngIf="!segmentChecker">
         <!-- BARIS PERTAMA -->
         <ion-row style="margin-top:10px;">
-          <ion-col size="3" class="col-container">
+          <ion-col size="3" class="col-container" routerLink="/home/sub-item/makanan">
             <div class="icon-container">
               <ion-img class="icon-img" src="../assets/images/spoon-and-fork.png" style="width:65%"></ion-img>
             </div>
           </ion-col>
           <ion-col size="3">
-            <div class="icon-container">
+            <div class="icon-container" routerLink="/home/sub-item/pakaian">
               <ion-img class="icon-img" src="../assets/images/hanger.png" style="width:65%"></ion-img>
             </div>
           </ion-col>
           <ion-col size="3">
-            <div class="icon-container">
+            <div class="icon-container" routerLink="/home/sub-item/aksesoris">
               <ion-img class="icon-img" src="../assets/images/earrings-2.png" style="width:65%"></ion-img>
             </div>         
           </ion-col>
           <ion-col size="3">
-            <div class="icon-container">
+            <div class="icon-container" routerLink="/home/sub-item/sepatu">
               <ion-img class="icon-img" src="../assets/images/shoe.png" style="width:65%"></ion-img>
             </div>            
           </ion-col>
@@ -93,22 +93,22 @@
         <!-- BARIS KEDUA -->
         <ion-row>
           <ion-col size="3" class="col-container">
-            <div class="icon-container">
+            <div class="icon-container" routerLink="/home/sub-item/peralatan">
               <ion-img class="icon-img" src="../assets/images/equipment.png" style="width:65%"></ion-img>
             </div>
           </ion-col>
           <ion-col size="3">
-            <div class="icon-container">
+            <div class="icon-container" routerLink="/home/sub-item/hobi">
               <ion-img class="icon-img" src="../assets/images/ukelele.png" style="width:65%"></ion-img>
             </div>
           </ion-col>
           <ion-col size="3">
-            <div class="icon-container">
+            <div class="icon-container" routerLink="/home/sub-item/perawatan">
               <ion-img class="icon-img" src="../assets/images/skincare.png" style="width:65%"></ion-img>
             </div>         
           </ion-col>
           <ion-col size="3">
-            <div class="icon-container">
+            <div class="icon-container" routerLink="/home/sub-item/kesehatan">
               <ion-img class="icon-img" src="../assets/images/bowl.png" style="width:65%"></ion-img>
             </div>            
           </ion-col>
@@ -133,16 +133,16 @@
       <ion-grid *ngIf="segmentChecker">
         <!-- BARIS PERTAMA -->
         <ion-row style="margin-top:10px;">
-          <ion-col size="3" class="col-container" routerLink="/home/sub-city">
+          <ion-col size="3" class="col-container" routerLink="/home/sub-city/aceh">
               <ion-img class="icon-img" src="../assets/images/aceh.png" style="width:65px"></ion-img>
           </ion-col>
-          <ion-col size="3">
+          <ion-col size="3" routerLink="/home/sub-city/bali">
               <ion-img class="icon-img" src="../assets/images/bali.png" style="width:65px"></ion-img>
           </ion-col>
-          <ion-col size="3">
+          <ion-col size="3" routerLink="/home/sub-city/jawa-barat">
               <ion-img class="icon-img" src="../assets/images/bandung.png" style="width:65px"></ion-img>
           </ion-col>
-          <ion-col size="3">
+          <ion-col size="3" routerLink="/home/sub-city/sumatera-barat">
               <ion-img class="icon-img" src="../assets/images/bukittinggi.png" style="width:65px"></ion-img>
           </ion-col>
         </ion-row>
@@ -154,24 +154,24 @@
             Bali
           </ion-col>
           <ion-col size="3" class="icon-label ion-text-center">
-            Bandung
+            Jawa Barat
           </ion-col>
           <ion-col size="3" class="icon-label ion-text-center">
-            Bukittinggi
+            Sumatera Barat
           </ion-col>
         </ion-row>
         <!-- BARIS KEDUA -->
         <ion-row>
-          <ion-col size="3" class="col-container">
+          <ion-col size="3" class="col-container" routerLink="/home/sub-city/jakarta">
               <ion-img class="icon-img" src="../assets/images/jakarta.png" style="width:65px"></ion-img>
           </ion-col>
-          <ion-col size="3">
+          <ion-col size="3" routerLink="/home/sub-city/yogyakarta">
               <ion-img class="icon-img" src="../assets/images/magelang.png" style="width:65px"></ion-img>
           </ion-col>
-          <ion-col size="3">
+          <ion-col size="3" routerLink="/home/sub-city/jawa-tengah">
               <ion-img class="icon-img" src="../assets/images/semarang.png" style="width:65px"></ion-img>
           </ion-col>
-          <ion-col size="3">
+          <ion-col size="3" routerLink="/home/sub-city/jawa-timur">
               <ion-img class="icon-img" src="../assets/images/surabaya.png" style="width:65px"></ion-img>
           </ion-col>
         </ion-row>
@@ -183,10 +183,10 @@
             Yogyakarta
           </ion-col>
           <ion-col size="3" class="icon-label ion-text-center">
-            Semarang
+            Jawa Tengah
           </ion-col>
           <ion-col size="3" class="icon-label ion-text-center">
-            Surabaya
+            Jawa Timur
           </ion-col>
         </ion-row>
     </ion-grid>
@@ -297,4 +297,9 @@
     </div>
     </ion-content>
   </ion-content>
+  <ion-footer (click)="logout()">
+    <ion-toolbar color="secondary">
+      <ion-title>Log out</ion-title>
+    </ion-toolbar>
+  </ion-footer>
 

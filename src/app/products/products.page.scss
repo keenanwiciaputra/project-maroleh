@@ -1,0 +1,171 @@
+.carousel-slides {
+    margin: 0;
+  }
+
+  .header-md::after {
+    display: none;
+}
+
+.carousel-card {
+    border: none !important;
+}
+
+h1 {
+    margin: 0px;
+}
+
+.harga-item {
+    font-family:'Helvetica';
+    font-size:24px;
+    font-weight: bold;
+    color: #F89208;
+}
+
+.judul-item {
+    font-family:'Helvetica';
+    font-size:18px;
+    color: black;
+    margin-left: 8px;
+}
+
+.padding {
+    padding-top: 10px;
+}
+
+.terjual {
+    font-family:'Helvetica';
+    font-size:15px;
+    color: #888888;
+    margin-left: 4px;
+}
+.rating {
+    font-family:'Helvetica';
+    font-size:15px;
+    color:#888888;
+    margin-left: 10px;
+}
+
+.lokasi {
+    font-family:'Helvetica';
+    font-size:15px;
+    color: #888888;
+    padding-left: 10px;
+}
+
+.informasi-judul {
+    font-family:'Helvetica';
+    font-size:16px;
+    color: black;
+    margin-left: 4px;
+    font-weight: bold;
+}
+
+.lihat-semua {
+    font-family:'Helvetica';
+    font-size:14px;
+    color: black;
+    margin-left: 4px;
+    font-weight: bold;
+}
+
+.informasi-item {
+    font-family:'Helvetica';
+    font-size:15px;
+    color: black;
+    margin-left: 4px;
+}
+
+.diskon-card-header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .diskon-container {
+      height: 162px;
+      width: 164px;
+  }
+
+  .diskon-item-slides {
+    padding-left:3%;
+  }
+  
+  .diskon-title {
+    font-size: 14px;
+    font-family: 'Helvetica';
+  }
+  
+  .diskon-price {
+    font-size: 12px;
+    font-family: 'Helvetica';
+    margin-top:8px;
+    margin-bottom:0px;
+    color: #F89208;
+    font-weight: bold;
+  }
+  
+  .diskon-original-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  
+  .diskon-price-original {
+    text-decoration: line-through;
+    color: #B4B4B4;
+    font-size: 10px;
+    font-family: 'Helvetica';
+    font-weight: bold;
+  }
+  
+  .diskon-amount {
+    border-radius:25px;
+    background-color: #FFE3E3;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-left:3px;
+    color: #F70000;
+    font-size: 9px;
+    font-family: 'Helvetica';
+    font-weight: bold;
+  }
+  
+  .diskon-place {
+    font-size: 10px;
+    font-weight:bold;
+    font-family: 'Helvetica';
+    margin-left: 3px;
+  }
+  
+  .diskon-star {
+    font-size: 13px;
+  }
+  
+  .diskon-count-star {
+    font-size: 10px;
+    font-weight:bold;
+    font-family: 'Helvetica';
+    margin-left: 3px;
+    margin-top: 2px
+  }
+  
+  .diskon-item-card {
+    height: 305px;
+    width: 100%;
+  }
+  
+  .btnkeranjang {
+    text-transform: none;
+    //--background: transparent;
+    --color:black;
+   // border: 2px solid #000000;
+  }
+
+  .btnpesan {
+    --background: black;
+    text-transform: none;
+    --color:white;
+
+  }
+
+  

@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: ProfilePage
-  },  {
+  },
+  {
     path: 'pembayaran',
     loadChildren: () => import('./pembayaran/pembayaran.module').then( m => m.PembayaranPageModule)
   },
@@ -22,8 +23,11 @@ const routes: Routes = [
   {
     path: 'pengaturan',
     loadChildren: () => import('./pengaturan/pengaturan.module').then( m => m.PengaturanPageModule)
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule)
   }
-
 ];
 
 @NgModule({

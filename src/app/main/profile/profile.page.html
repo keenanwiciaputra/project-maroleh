@@ -7,10 +7,10 @@
 <ion-content>
   <!-- Foto Profile, Nama dan Email-->
   <div class= "back-profile">
-      <img class="photo-profile" src="assets/images/profile/18.jpg">
+      <img class="photo-profile" src= "{{ user?.foto }}">
       <div class="profile">
-          <ion-text class="name-profile" > Gabriel </ion-text>
-          <ion-text class="email-profile" > gabriel.j@gmail.com </ion-text>
+          <ion-text class="name-profile" > {{ user?.namadepan }} {{ user?.namabelakang }} </ion-text>
+          <ion-text class="email-profile" > {{ userEmail }} </ion-text>
        </div>
   </div>
   
@@ -86,6 +86,13 @@
             <ion-icon class="siku" name="chevron-forward-outline"></ion-icon>     
         </ion-item>
 
+        <ion-item class="item" (click)="logout()">
+          <ion-label class="label">
+            <h2 class="text-list">Log Out</h2>
+            <p class="text-list-detail">Keluar dari akun</p>
+          </ion-label>
+            <ion-icon class="siku" name="chevron-forward-outline"></ion-icon>     
+        </ion-item>
     </ion-list>
   </div>
 
@@ -93,23 +100,75 @@
   <!-- Rekomendasi -->
   <div class="rekomendasi ion-margin-top">
     <ion-text class="text-pesanan"> Rekomendasi Untuk Anda</ion-text>
-    <ion-slides [options]="slideOpts" class="rekomendasi-item-slides">
+    <ion-slides  [options]="slideOpts" class="rekomendasi-item-slides">
+      <ng-container *ngFor="let item of query;let i = index" >
       <ion-slide class="rekomendasi-item-slide">
-        <ion-card class="ion-padding-bottom rekomendasi-item-card">
-          <img src="../assets/images/wayang.png">
+        <ion-card class="ion-padding-bottom rekomendasi-item-card" [routerLink]="['/products', item[0].id]">
+          <img src="{{ item[0].img1 }}">
           <ion-card-header class="ion-no-padding rekomendasi-card-header">
             <ion-text class="ion-text-left ion-no-margin ion-no-padding">
-              <p class="rekomendasi-title">Satuempat Central Kerajinan Miniatur Wayang Kulit Rama Shinta - Batik</p>
-              <p class="rekomendasi-price">Rp. 98.500</p>
-              <p class="rekomendasi-original-container"><span class="rekomendasi-price-original">Rp. 153.000</span><span class="rekomendasi-amount">35%</span></p>
+              <p class="rekomendasi-title">{{ item[0].nama }}</p>
+              <p class="rekomendasi-price" *ngIf="item[0].diskon == 1">Rp. {{ item[0].harga*(100-item[0].disc_amount)/100 }}</p>
+              <p class="rekomendasi-price" *ngIf="item[0].diskon == 0">Rp. {{ item[0].harga }}</p>
+              <p class="rekomendasi-original-container" *ngIf="item[0].diskon == 1"><span class="rekomendasi-price-original">Rp. {{ item[0].harga }}</span><span class="rekomendasi-amount">{{ item[0].disc_amount }}%</span></p>
               <ion-grid class="ion-no-padding ion-no-margin">
                 <ion-row style="margin-top:5px;">
                   <ion-img src="../assets/images/places.png" style="width:5%"></ion-img>
                   <ion-text class="rekomendasi-place">
-                    Yogyakarta
+                    {{ item[0].lokasi }}
                   </ion-text>
                 </ion-row>
-                <ion-row>
+                <ion-row *ngIf="item[0].bintang >=2 && item[0].bintang < 2.5">
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-outline" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-outline" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-outline" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-text class="rekomendasi-count-star">
+                    (6)
+                  </ion-text>
+                </ion-row>
+                <ion-row *ngIf="item[0].bintang >=2.5 && item[0].bintang < 3">
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-half" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-outline" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-outline" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-text class="rekomendasi-count-star">
+                    (6)
+                  </ion-text>
+                </ion-row>
+                <ion-row *ngIf="item[0].bintang >=3 && item[0].bintang < 3.5">
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-outline" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-outline" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-text class="rekomendasi-count-star">
+                    (6)
+                  </ion-text>
+                </ion-row>
+                <ion-row *ngIf="item[0].bintang >= 3.5 && item[0].bintang < 4">
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-half" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-outline" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-text class="rekomendasi-count-star">
+                    (6)
+                  </ion-text>
+                </ion-row>
+                <ion-row *ngIf="item[0].bintang >=4 && item[0].bintang < 4.5">
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star-outline" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-text class="rekomendasi-count-star">
+                    (6)
+                  </ion-text>
+                </ion-row>
+                <ion-row *ngIf="item[0].bintang >=4.5 && item[0].bintang < 5">
                   <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
                   <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
                   <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
@@ -119,32 +178,12 @@
                     (6)
                   </ion-text>
                 </ion-row>
-              </ion-grid>
-            </ion-text>
-          </ion-card-header>
-        </ion-card>
-      </ion-slide>
-      <ion-slide class="rekomendasi-item-slide">
-        <ion-card class="ion-padding-bottom rekomendasi-item-card">
-          <img src="../assets/images/almond-crispy.png">
-          <ion-card-header class="ion-no-padding rekomendasi-card-header">
-            <ion-text class="ion-text-left ion-no-margin ion-no-padding">
-              <p class="rekomendasi-title">Almond Crispy Cheese Original</p>
-              <p class="rekomendasi-price">Rp. 63.000</p>
-              <p class="rekomendasi-original-container"><span class="rekomendasi-price-original">Rp. 75.000</span><span class="rekomendasi-amount">15%</span></p>
-              <ion-grid class="ion-no-padding ion-no-margin">
-                <ion-row style="margin-top:5px;">
-                  <ion-img src="../assets/images/places.png" style="width:5%"></ion-img>
-                  <ion-text class="rekomendasi-place">
-                    Surabaya
-                  </ion-text>
-                </ion-row>
-                <ion-row>
+                <ion-row *ngIf="item[0].bintang == 5">
                   <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
                   <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
                   <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
                   <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
-                  <ion-icon name="star-half" color="warning" class="rekomendasi-star"></ion-icon>
+                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
                   <ion-text class="rekomendasi-count-star">
                     (6)
                   </ion-text>
@@ -154,36 +193,8 @@
           </ion-card-header>
         </ion-card>
       </ion-slide>
-      <ion-slide class="rekomendasi-item-slide">
-        <ion-card class="ion-padding-bottom rekomendasi-item-card">
-          <img src="../assets/images/kartika-sari.png">
-          <ion-card-header class="ion-no-padding rekomendasi-card-header">
-            <ion-text class="ion-text-left ion-no-margin ion-no-padding">
-              <p class="rekomendasi-title">Brownies Kartika Sari</p>
-              <p class="rekomendasi-price">Rp 96.000</p>
-              <p class="rekomendasi-original-container"><span class="rekomendasi-price-original">Rp. 105.000</span><span class="rekomendasi-amount">5%</span></p>
-              <ion-grid class="ion-no-padding ion-no-margin">
-                <ion-row style="margin-top:5px;">
-                  <ion-img src="../assets/images/places.png" style="width:5%"></ion-img>
-                  <ion-text class="rekomendasi-place">
-                    Bandung
-                  </ion-text>
-                </ion-row>
-                <ion-row>
-                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
-                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
-                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
-                  <ion-icon name="star" color="warning" class="rekomendasi-star"></ion-icon>
-                  <ion-icon name="star-half" color="warning" class="rekomendasi-star"></ion-icon>
-                  <ion-text class="rekomendasi-count-star">
-                    (6)
-                  </ion-text>
-                </ion-row>
-              </ion-grid>
-            </ion-text>
-          </ion-card-header>
-        </ion-card>
-      </ion-slide>
+    </ng-container>
+
     </ion-slides> 
   </div>
 
