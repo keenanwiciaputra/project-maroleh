@@ -153,5 +153,19 @@ h1 {
     height: 305px;
     width: 100%;
   }
+  
+  .btnkeranjang {
+    text-transform: none;
+    //--background: transparent;
+    --color:black;
+   // border: 2px solid #000000;
+  }
+
+  .btnpesan {
+    --background: black;
+    text-transform: none;
+    --color:white;
+
+  }
 
   

@@ -27,6 +27,10 @@ export class UserService {
     return this.db.object('user/' + userid).valueChanges();
   }
 
+  create(user: User): any{
+    return this.userRef.push(user);
+  }
+
   update(userid: string, value:any): Promise<void> {
     return this.userRef.update(userid, value);
   }

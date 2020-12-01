@@ -3,6 +3,7 @@ export class User{
     id: string;
     namadepan: string;
     namabelakang: string;
+    kodetelepon: string;
     notelepon: string;
     tgllahir: string;
     jeniskelamin: string;
@@ -13,6 +14,7 @@ export class User{
         id: string,
         namadepan: string, 
         namabelakang: string, 
+        kodetelepon: string,
         notelepon: string,
         tgllahir: string,
         jeniskelamin: string,
