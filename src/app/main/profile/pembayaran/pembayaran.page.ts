@@ -14,23 +14,21 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./pembayaran.page.scss'],
 })
 export class PembayaranPage implements OnInit {
-  private displayMode = 1;
-
   userEmail: string;
   userID: string;
   user: any;
   order: any;
-  orderItem: any;
+  exist: number;
 
   constructor(
     private navCtrl: NavController,
     private authSrv: AuthService,
     private userService: UserService,
-    private itemsService: ItemService,
     private orderService: OrderService
   ) { }
 
   ngOnInit() {
+    this.exist = 0;
     this.authSrv.userDetails().subscribe(res => {
       console.log(res);
       console.log('uid: ', res.uid);
@@ -49,17 +47,27 @@ export class PembayaranPage implements OnInit {
         ).subscribe( data => {
           this.order = data;
           console.log(this.order);
+          if(this.order.length > 0) {
+            this.exist = 1;
+            this.order = this.getOrder(0);
+            if(this.order.length == 0) {
+              this.exist = 0;
+            }
+          }
         });
       }
       else {
-        this.navCtrl.navigateBack('');
+        this.navCtrl.navigateBack('/login');
       }
     }, err => {
       console.log(err);
     });
+
   }
-  
-  onDisplayModeChange(mode: number): void {
-    this.displayMode = mode;
+
+  getOrder(id: number) {
+    return this.order.filter( (item) => {
+      return item.status === id 
+    });
   }
 }
