@@ -16,12 +16,12 @@ export class SignupPage implements OnInit {
 
   validation_messages = {
     'email': [
-      { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Enter a valid email.' }
+      { type: 'required', message: 'Email harus diisi' },
+      { type: 'pattern', message: 'Masukkan email yang terdaftar' }
     ],
     'password': [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minLength', message: 'Password must be at least 5 characters long.' }
+      { type: 'required', message: 'Password harus diisi.' },
+      { type: 'minLength', message: 'Minimal password 5 karakter.' }
     ]
   };
 
@@ -89,7 +89,7 @@ export class SignupPage implements OnInit {
       .then(res => {
         console.log(res);
         this.errorMessage = '';
-        this.successMessage = "Your account has been created. Please log in.";
+        this.successMessage = "Akun anda berhasil dibuat.";
         this.navCtrl.navigateForward('/login');
       }, err=> {
         console.log(err);
