@@ -7,11 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./main/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'main',
-    pathMatch: 'full'
-  },
-  {
     path: 'profile',
     loadChildren: () => import('./main/profile/profile.module').then( m => m.ProfilePageModule)
   },
@@ -50,6 +45,11 @@ const routes: Routes = [
   {
     path: 'payment',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'main',
+    pathMatch: 'full'
   },
 ];
 

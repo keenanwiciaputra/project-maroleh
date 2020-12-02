@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     this.authService.userDetails().subscribe(res => {
       if(res !== null){
-        this.navCtrl.navigateForward('/main/tabs/home');
+        this.navCtrl.navigateForward('/welcome');
       }
     });
 

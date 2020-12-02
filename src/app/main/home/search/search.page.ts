@@ -18,7 +18,7 @@ export class SearchPage implements OnInit {
   ) { this.searchControl = new FormControl(); }
 
   ngOnInit() {
-    this.itemsService.getAll("").snapshotChanges().pipe(
+    this.itemsService.getAll("default").snapshotChanges().pipe(
       map(changes =>
         changes.map(c => ({key: c.payload.key, ...c.payload.val()}))
       )
