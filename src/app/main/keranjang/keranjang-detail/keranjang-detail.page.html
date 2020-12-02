@@ -29,33 +29,36 @@
   </ion-card>
 
 
-  <ion-card style="align-items:center;padding-bottom: 20px">
+  <ion-card style="align-items:center;padding-bottom: 20px" *ngFor="let item of query; let i = index">
     <ion-item class="cart-img" lines="none" style="display: flex;flex-direction: column;margin-top: 5px">
-      <ion-img style=" vertical-align:top;max-width:70px; min-width:70px;margin-top: 15px;margin-right: 10px;"
-               src="https://ecs7.tokopedia.net/img/cache/700/product-1/2020/5/29/3256573/3256573_0de441d4-b9a2-4b32-aa0a-c3a0d787b2ba_1000_1000">
-      </ion-img>
-
+      <img style=" vertical-align:top;max-width:70px; min-width:70px;margin-top: 15px;margin-right: 10px;"
+               src="{{ item[0].img1 }}">
+      <img>
         <div>
         <ion-grid>
           <ion-row>
           <span style="font-size:14px;margin-top:6px;margin-bottom:10px;font-weight: bold">
-            Almond Crispy Cheese Khas Sur ...
+            {{ item[0].nama }}
           </span>
           </ion-row>
           <ion-row>
           <span style="margin-bottom:10px;font-size: small;">
-            Surabaya
+            {{ item[0].lokasi }}
           </span>
           </ion-row>
           <ion-row>
           <span style="font-weight: bold;color:orange;font-size: medium;">
-            Rp 63.000
+            Rp {{ item[0].harga }}
+          </span>
+          </ion-row>
+          <ion-row>
+          <span style="margin-top:3px; font-size: small;">
+            Quantity: {{ item[0].qty }}
           </span>
           </ion-row>
         </ion-grid>
       </div>
     </ion-item>
-
   </ion-card>
 
 
@@ -68,7 +71,7 @@
     <ion-grid style="padding:0px;">
       <ion-row style="padding:0px;">
         <ion-text style="width:70%;font-size:12px">Total Harga Barang</ion-text>
-        <ion-text style="font-size:12px">Rp 63.000</ion-text>
+        <ion-text style="font-size:12px">Rp {{total}}</ion-text>
       </ion-row>
       <ion-row style="margin-top:10px;padding:0px;">
         <ion-text style="width:70%;font-size:12px">Total Ongkos</ion-text>

@@ -37,15 +37,14 @@
           <ion-icon style="vertical-align:-4px; zoom:1.2;" name="trash" ></ion-icon>
           </ion-buttons>
 
-          <ion-buttons (click)="incrementQty()" style="margin-left:auto;z-index:3;">
-          <ion-icon style="z-index: 3;zoom:1.2;" name="add-circle" ></ion-icon>
-          </ion-buttons>
-          <ion-text style="width:40px;z-index: 3;text-align:center;margin-left:5px;margin-right:5px;padding:0px" lines="full">
-            {{ qty }}</ion-text>
-          <ion-buttons (click)="decrementQty()" style="z-index: 3;">
+          <ion-buttons (click)="decrementQty(item[0].id, item[0].qty, i)" style="margin-left:auto;z-index:3;">
           <ion-icon style="z-index: 3;zoom:1.2;" name="remove-circle" ></ion-icon>
           </ion-buttons>
-
+          <ion-text style="width:40px;z-index: 3;text-align:center;margin-left:5px;margin-right:5px;padding:0px" lines="full">
+            {{ item[0].qty }}</ion-text>
+          <ion-buttons (click)="incrementQty(item[0].id, item[0].qty, i)" style="z-index: 3;">
+          <ion-icon style="z-index: 3;zoom:1.2;" name="add-circle" ></ion-icon>
+          </ion-buttons>
 
         </ion-row>
       </ion-grid>
@@ -78,12 +77,11 @@
             Total Harga
           </div>
           <div style="margin-top: 5px;margin-left:15px;font-weight: bold;color:orange;font-size: medium;">
-            Rp 1.000.000
+            Rp {{ total }}
           </div>
         </div>
-        <ion-button style="margin-left:auto;margin-right: 10px" routerLink="/main/tabs/keranjang/keranjang-detail"color="light" class="round-button">Beli</ion-button>
+        <ion-button style="margin-left:auto;margin-right: 10px" routerLink="/main/tabs/keranjang/keranjang-detail"  color="light" class="round-button">Beli</ion-button>
       </ion-row>
     </ion-grid>
-
   </div>
 </ion-footer>

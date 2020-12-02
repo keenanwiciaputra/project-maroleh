@@ -35,7 +35,7 @@
           </div>
           <div class="validation-errors">
             <ng-container *ngFor="let validation of validation_messages.email">
-              <div class="error-message"
+              <div class="error-message alertmsg"
                 *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
                 {{ validation.message }}
               </div>
@@ -50,7 +50,7 @@
           </div>
           <div class="validation-errors">
             <ng-container *ngFor="let validation of validation_messages.password">
-              <div class="error-message"
+              <div class="error-message alertmsg"
                 *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
                 {{ validation.message }}
               </div>
@@ -64,9 +64,9 @@
             <ion-input type="password" placeholder="Konfirmasi Sandi" formControlName="confirmpassword"></ion-input>          
           </div>
           <div class="validation-errors">
-              <div class="error-message"
+              <div class="error-message alertmsg"
                 *ngIf="validations_form.get('confirmpassword').touched && validations_form.hasError('mismatchedPasswords') && validations_form.controls.password.valid">
-                Password you enter didn't match.
+                Password yang dimasukan tidak sama
               </div>
           </div>
         </ion-col>
@@ -85,8 +85,6 @@
         <div class="ion-float-right">
           <div class="btn-daftar">
             <ion-button slot="end" class="btn-submit" type="submit" [disabled]="!validations_form.valid">Daftar</ion-button>
-            <label class="error-message">{{errorMessage}}</label>
-            <label class="success-message">{{successMessage}}</label>
           </div>
         </div>
       </ion-col>
@@ -95,6 +93,17 @@
     <ion-input placeholder="jeniskelamin" formControlName="jeniskelamin" hidden></ion-input>
     <ion-input placeholder="foto" formControlName="foto" hidden></ion-input>
     <ion-input placeholder="alamat" formControlName="alamat" hidden></ion-input>
+    <ion-input placeholder="id" formControlName="id" hidden></ion-input>
+    <ion-input placeholder="kabupaten" formControlName="kabupaten" hidden></ion-input>
+    <ion-input placeholder="kecamatan" formControlName="kecamatan" hidden></ion-input>
+    <ion-input placeholder="kodepos" formControlName="kodepos" hidden></ion-input>
+    <ion-input placeholder="namapenerima" formControlName="namapenerima" hidden></ion-input>
+    <ion-input placeholder="nomortelfon" formControlName="nomortelfon" hidden></ion-input>
+    <ion-input placeholder="provinsi" formControlName="provinsi" hidden></ion-input>
+    <div class="ion-text-center alertmsg">
+      <label class="error-message">{{errorMessage}}</label>
+            <label class="success-message">{{successMessage}}</label>        
+    </div>
   </ion-grid>
 </form>
   </div>

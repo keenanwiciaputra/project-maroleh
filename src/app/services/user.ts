@@ -7,6 +7,13 @@ export class User{
     tgllahir: string;
     jeniskelamin: string;
     foto: string;
+    alamat: string;
+    kabupaten: string;
+    kecamatan: string;
+    kodepos: string;
+    namapenerima: string;
+    nomortelfon: string;
+    provinsi: string;
 
     constructor(
         key: string,
@@ -17,5 +24,12 @@ export class User{
         tgllahir: string,
         jeniskelamin: string,
         foto: string,
+        alamat: string,
+        kabupaten: string,
+        kecamatan: string,
+        kodepos: string,
+        namapenerima: string,
+        nomortelfon: string,
+        provinsi: string,
         ){}
 }

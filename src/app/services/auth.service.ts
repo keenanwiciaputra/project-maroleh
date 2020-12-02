@@ -31,6 +31,13 @@ export class AuthService {
           tgllahir: '',
           jeniskelamin: '',
           alamat: '',
+          id:this.user_id,
+          kabupaten: '',
+          kecamatan: '',
+          kodepos: '',
+          namapenerima: '',
+          nomortelfon: '',
+          provinsi: '',
           foto: 'https://firebasestorage.googleapis.com/v0/b/maroleh-74f45.appspot.com/o/user%2Ffoto%2Fdefault.jpg?alt=media&token=b6e5f43b-ff89-4c0e-afa0-c6cacbf9caac'
         })
       }

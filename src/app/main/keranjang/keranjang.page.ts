@@ -20,6 +20,7 @@ export class KeranjangPage implements OnInit {
   user: any;
   cart: any;
   cartItem: any;
+  total: number = 0;
 
 
   constructor(
@@ -48,7 +49,8 @@ export class KeranjangPage implements OnInit {
           )
         ).subscribe( data => {
           this.cart = data;
-          this.qty = this.cart[1].qty;
+          this.total = 0;
+          // this.qty = this.cart[1].qty;
           // console.log(this.cart);
           for (let i = 0; i < data.length ; i++){  // How to properly iterate here!!
             this.itemsService.getAllCartItem(this.cart[i].id).snapshotChanges().pipe(
@@ -58,7 +60,8 @@ export class KeranjangPage implements OnInit {
             ).subscribe(data => {
               this.cartItem = data;
               this.query[i] = this.cartItem;
-
+              this.query[i][0].qty = this.cart[i].qty;
+              this.total = this.total + (this.query[i][0].qty*this.query[i][0].harga);
             });
           }
           console.log(this.query);
@@ -79,17 +82,22 @@ export class KeranjangPage implements OnInit {
     this.itemsService.deleteCart(itemid, this.userID);
   }
 
-  incrementQty() {
-    this.qty += 1;
+  incrementQty(itemid:string, quantity:number, i:string) {
+    quantity += 1;
+    this.query[i][0].qty = quantity;
+    this.itemsService.updateCart(itemid, this.userID, this.query[i][0].qty);
   }
 
-  decrementQty() {
-    if (this.qty - 1 < 1) {
-      this.qty = 1;
+  decrementQty(itemid:string, quantity:number, i:string) {
+    if (quantity - 1 < 1) {
+      quantity = 1;
+      this.query[i][0].qty = quantity;
+      this.itemsService.updateCart(itemid, this.userID, this.query[i][0].qty);
     } else {
-      this.qty -= 1;
+      quantity -= 1;
+      this.query[i][0].qty = quantity;
+      this.itemsService.updateCart(itemid, this.userID, this.query[i][0].qty);
     }
   }
-
-
+  
 }

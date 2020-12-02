@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { ItemService } from 'src/app/services/item.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +13,7 @@ export class HomePage implements OnInit {
   segmentChecker : boolean;
   userID: string;
   userEmail: string;
+  diskonItem: any;
 
   slideOpts = {
     initialSlide: 0,
@@ -33,7 +36,8 @@ export class HomePage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private authService: AuthService
+    private authService: AuthService,
+    private itemsService: ItemService
   ) { }
 
   ngOnInit() {
@@ -47,6 +51,15 @@ export class HomePage implements OnInit {
     }, err => {
       console.log(err);
     });
+
+    this.itemsService.getItemDiskon().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({key: c.payload.key, ...c.payload.val()}))
+      )
+    ).subscribe( data => {
+      this.diskonItem = data;
+      console.log(this.diskonItem);
+      });
   }
 
   logout() {

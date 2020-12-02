@@ -11,6 +11,7 @@ export class ItemService {
   private dbWish = '/wishlist';
   private dbCart = '/cart';
   itemRef: AngularFireList<Item> = null;
+  itemDiskonRef: AngularFireList<Item> = null;
   itemRekom: AngularFireList<Item> = null;
   itemMakananRef: AngularFireList<Item> = null;
   itemPakaianRef: AngularFireList<Item> = null;
@@ -27,7 +28,7 @@ export class ItemService {
   constructor(
     private db: AngularFireDatabase
   ) {
-    this.itemRef = db.list(this.dbPath);
+    this.itemDiskonRef = db.list(this.dbPath, ref=> ref.orderByChild("diskon").equalTo(1).limitToFirst(15));
     this.itemRekom = db.list(this.dbRekom);
     this.itemMakananRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Makanan & Minuman'));
     this.itemPakaianRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Pakaian'));
@@ -52,6 +53,10 @@ export class ItemService {
       case 'kesehatan': return this.itemKesehatanRef;
       default: return this.itemRef;
     }
+  }
+
+  getItemDiskon(): AngularFireList<Item> {
+    return this.itemDiskonRef;
   }
 
   getDetailItem(id): AngularFireList<Item> {
@@ -110,6 +115,21 @@ export class ItemService {
     });
   }
 
+  updateCart(itemid: string, userid: string, quantity:string) {
+    this.tmpRef = this.db.list('/cart');
+    this.tmpItemRef = '/item-' + itemid;
+    return this.tmpRef.update(userid + '/' + this.tmpItemRef, {
+      qty: quantity
+    });
+  }
+
+  checkoutCart(userid: string, totalcart:string) {
+    this.tmpRef = this.db.list('/cart');
+    // this.tmpItemRef = '/item-' + itemid;
+    return this.tmpRef.update(userid, {
+      total: totalcart
+    });
+  }
 
   deleteCart(itemid: string, userid: string) {
     this.tmpRef = this.db.list('/cart');
