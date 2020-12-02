@@ -20,6 +20,9 @@ export class ItemService {
   itemHobiRef: AngularFireList<Item> = null;
   itemPerawatanRef: AngularFireList<Item> = null;
   itemKesehatanRef: AngularFireList<Item> = null;
+  cartRef: AngularFireList<Item> = null;
+  tmpRef: any;
+  tmpItemRef: any;
 
   constructor(
     private db: AngularFireDatabase
@@ -80,6 +83,22 @@ export class ItemService {
 
   getAllCartItem(id: string): AngularFireList<Item> {
     return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
+  }
+
+  createCart(itemid:string, userid:string) {
+    this.tmpRef = this.db.list('/cart');
+    this.tmpItemRef = '/item-'+itemid;
+    return this.tmpRef.update(userid+'/'+this.tmpItemRef, {
+      id: itemid
+    });
+  }
+
+  deleteCart(itemid:string, userid:string) {
+    this.tmpRef = this.db.list('/cart');
+    this.tmpItemRef = '/item-'+itemid;
+    return this.tmpRef.remove(userid+'/'+this.tmpItemRef, {
+      id: itemid
+    });
   }
 
 }
