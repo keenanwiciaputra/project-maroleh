@@ -12,6 +12,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./products.page.scss'],
 })
 export class ProductsPage implements OnInit {
+  qty: any;
   detailItems: any;
   userEmail: string;
   itemID: string;
@@ -43,9 +44,10 @@ export class ProductsPage implements OnInit {
     private authSrv: AuthService,
     private userService: UserService
   ) { }
-  
+
 
   ngOnInit() {
+    this.qty = 1;
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('id')) { return; }
       this.itemID = paramMap.get('id');

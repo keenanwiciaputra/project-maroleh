@@ -29,91 +29,92 @@ export class ItemService {
   ) {
     this.itemRef = db.list(this.dbPath);
     this.itemRekom = db.list(this.dbRekom);
-    this.itemMakananRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Makanan & Minuman"));
-    this.itemPakaianRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Pakaian"));
-    this.itemAksesorisRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Aksesoris"));
-    this.itemSepatuRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Sepatu"));
-    this.itemPeralatanRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Peralatan"));
-    this.itemHobiRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Hobi & Koleksi"));
-    this.itemPerawatanRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Perawatan & Kecantikan"));
-    this.itemKesehatanRef = db.list(this.dbPath, ref=> ref.orderByChild("kategori").equalTo("Kesehatan"));
+    this.itemMakananRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Makanan & Minuman'));
+    this.itemPakaianRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Pakaian'));
+    this.itemAksesorisRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Aksesoris'));
+    this.itemSepatuRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Sepatu'));
+    this.itemPeralatanRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Peralatan'));
+    this.itemHobiRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Hobi & Koleksi'));
+    this.itemPerawatanRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Perawatan & Kecantikan'));
+    this.itemKesehatanRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Kesehatan'));
    }
 
    getAll(kategori): AngularFireList<Item> {
-     switch(kategori)
+     switch (kategori)
      {
-      case "makanan": return this.itemMakananRef;
-      case "pakaian": return this.itemPakaianRef;
-      case "aksesoris": return this.itemAksesorisRef;
-      case "sepatu": return this.itemSepatuRef;
-      case "peralatan": return this.itemPeralatanRef;
-      case "hobi": return this.itemHobiRef;
-      case "perawatan": return this.itemPerawatanRef;
-      case "kesehatan": return this.itemKesehatanRef;
+      case 'makanan': return this.itemMakananRef;
+      case 'pakaian': return this.itemPakaianRef;
+      case 'aksesoris': return this.itemAksesorisRef;
+      case 'sepatu': return this.itemSepatuRef;
+      case 'peralatan': return this.itemPeralatanRef;
+      case 'hobi': return this.itemHobiRef;
+      case 'perawatan': return this.itemPerawatanRef;
+      case 'kesehatan': return this.itemKesehatanRef;
       default: return this.itemRef;
     }
   }
 
   getDetailItem(id): AngularFireList<Item> {
-    return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
+    return this.db.list(this.dbPath, ref => ref.orderByChild('id').equalTo(id));
   }
 
-  getAllRekom(userid : string): AngularFireList<Item> {
-    this.dbRekom = '/rekomendasi/'+userid; 
+  getAllRekom(userid: string): AngularFireList<Item> {
+    this.dbRekom = '/rekomendasi/' + userid;
     return this.db.list(this.dbRekom);
   }
 
   getAllRekomItem(id: string): AngularFireList<Item> {
-    return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
+    return this.db.list(this.dbPath, ref => ref.orderByChild('id').equalTo(id));
   }
 
-  getAllWishlist(userid : string): AngularFireList<Item> {
-    this.dbWish = '/wishlist/'+userid; 
+  getAllWishlist(userid: string): AngularFireList<Item> {
+    this.dbWish = '/wishlist/' + userid;
     return this.db.list(this.dbWish);
   }
 
   getAllWishlistItem(id: string): AngularFireList<Item> {
-    return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
+    return this.db.list(this.dbPath, ref => ref.orderByChild('id').equalTo(id));
   }
 
-  getAllCart(userid : string): AngularFireList<Item> {
-    this.dbCart = '/cart/'+userid; 
+  getAllCart(userid: string): AngularFireList<Item> {
+    this.dbCart = '/cart/' + userid;
     return this.db.list(this.dbCart);
   }
 
   getAllCartItem(id: string): AngularFireList<Item> {
-    return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
+    return this.db.list(this.dbPath, ref => ref.orderByChild('id').equalTo(id));
   }
 
-  createWishlist(itemid:string, userid:string) {
+  createWishlist(itemid: string, userid: string) {
     this.tmpRef = this.db.list('/wishlist');
-    this.tmpItemRef = '/item-'+itemid;
-    return this.tmpRef.update(userid+'/'+this.tmpItemRef, {
+    this.tmpItemRef = '/item-' + itemid;
+    return this.tmpRef.update(userid + '/' + this.tmpItemRef, {
       id: itemid
     });
   }
 
-  deleteWishlist(itemid:string, userid:string) {
+  deleteWishlist(itemid: string, userid: string) {
     this.tmpRef = this.db.list('/wishlist');
-    this.tmpItemRef = '/item-'+itemid;
-    return this.tmpRef.remove(userid+'/'+this.tmpItemRef, {
+    this.tmpItemRef = '/item-' + itemid;
+    return this.tmpRef.remove(userid + '/' + this.tmpItemRef, {
       id: itemid
     });
   }
 
-  createCart(itemid:string, userid:string) {
+  createCart(itemid: string, userid: string) {
     this.tmpRef = this.db.list('/cart');
-    this.tmpItemRef = '/item-'+itemid;
-    return this.tmpRef.update(userid+'/'+this.tmpItemRef, {
-      id: itemid
+    this.tmpItemRef = '/item-' + itemid;
+    return this.tmpRef.update(userid + '/' + this.tmpItemRef, {
+      id: itemid,
+      qty: 1
     });
   }
 
 
-  deleteCart(itemid:string, userid:string) {
+  deleteCart(itemid: string, userid: string) {
     this.tmpRef = this.db.list('/cart');
-    this.tmpItemRef = '/item-'+itemid;
-    return this.tmpRef.remove(userid+'/'+this.tmpItemRef, {
+    this.tmpItemRef = '/item-' + itemid;
+    return this.tmpRef.remove(userid + '/' + this.tmpItemRef, {
       id: itemid
     });
   }

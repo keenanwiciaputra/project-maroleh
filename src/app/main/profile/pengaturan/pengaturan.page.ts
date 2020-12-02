@@ -52,7 +52,6 @@ export class PengaturanPage implements OnInit {
           this.imgSrc =  this.user.foto;
           console.log(this.imgSrc);
         });
-        
 
         setTimeout( () => {
           this.f.setValue(this.user);
