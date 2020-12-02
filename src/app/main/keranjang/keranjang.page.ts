@@ -48,7 +48,7 @@ export class KeranjangPage implements OnInit {
           )
         ).subscribe( data => {
           this.cart = data;
-          this.qty = this.cart[1].qty;
+          // this.qty = this.cart[1].qty;
           // console.log(this.cart);
           for (let i = 0; i < data.length ; i++){  // How to properly iterate here!!
             this.itemsService.getAllCartItem(this.cart[i].id).snapshotChanges().pipe(
@@ -58,7 +58,8 @@ export class KeranjangPage implements OnInit {
             ).subscribe(data => {
               this.cartItem = data;
               this.query[i] = this.cartItem;
-
+              this.query[i][0].qty = this.cart[i].qty;
+              // console.log(this.query);
             });
           }
           console.log(this.query);
