@@ -27,10 +27,18 @@ export class LoginPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit() {
+    this.authService.userDetails().subscribe(res => {
+      if(res !== null){
+        this.navCtrl.navigateForward('/main/tabs/home');
+      }
+    }, err => {
+      console.log(err);
+    });
+
     this.validations_form = this.formBuilder.group( {
       email: new FormControl('', Validators.compose( [
         Validators.required,

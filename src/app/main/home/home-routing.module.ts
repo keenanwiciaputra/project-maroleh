@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'sub-item/:kategori',
     loadChildren: () => import('./sub-item/sub-item.module').then( m => m.SubItemPageModule)
+  },  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   }
+
 
 ];
 
