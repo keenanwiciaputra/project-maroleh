@@ -140,6 +140,13 @@ export class ItemService {
     });
   }
 
+  deleteAllCart(userid: string) {
+    console.log("KEPANGGIL");
+    this.tmpRef = this.db.list('/cart');
+    // this.tmpItemRef = '/item-' + itemid;
+    return this.tmpRef.remove(userid);
+  }
+
   getAllOrder(userid: string): AngularFireList<Item> {
     this.dbOrder = '/order/' + userid;
     return this.db.list(this.dbOrder);

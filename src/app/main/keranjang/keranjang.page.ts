@@ -21,6 +21,8 @@ export class KeranjangPage implements OnInit {
   cart: any;
   cartItem: any;
   total: number = 0;
+  validateKeranjang: boolean;
+  ctr: any;
 
 
   constructor(
@@ -50,8 +52,16 @@ export class KeranjangPage implements OnInit {
         ).subscribe( data => {
           this.cart = data;
           this.total = 0;
+          this.ctr = data.length;
+          if(this.ctr == 0)
+          {
+            this.validateKeranjang = true;
+          }
+          if(this.ctr > 0)
+          {
+            this.validateKeranjang = false;
+          }
           // this.qty = this.cart[1].qty;
-          // console.log(this.cart);
           for (let i = 0; i < data.length ; i++){  // How to properly iterate here!!
             this.itemsService.getAllCartItem(this.cart[i].id).snapshotChanges().pipe(
               map(changes =>
@@ -64,7 +74,7 @@ export class KeranjangPage implements OnInit {
               this.total = this.total + (this.query[i][0].qty*this.query[i][0].harga);
             });
           }
-          console.log(this.query);
+          // console.log(this.query);
         });
       }
       else {
@@ -77,7 +87,7 @@ export class KeranjangPage implements OnInit {
 
   deleteCart(itemid: string, i: string){
     const index = this.query.indexOf(i);
-    console.log(index);
+    // console.log(index);
     this.query.splice(index, 1);
     this.itemsService.deleteCart(itemid, this.userID);
   }

@@ -106,10 +106,20 @@ export class PaymentProcessPage implements OnInit {
   async presentAlert() {
     const alert = await this.alertCtrl.create({
       message: 'Berhasil disalin',
-      buttons: ['OK'],
+      buttons: [
+        {
+          text: "OK",
+          handler: () => {
+          }
+      }],
     });
 
     await alert.present();
+  }
+
+  clearCart(){
+    this.itemsService.deleteAllCart(this.userID);
+    this.navCtrl.navigateForward('main/tabs/home')
   }
 
 }
