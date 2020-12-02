@@ -44,7 +44,7 @@ export class KeranjangPage implements OnInit {
           )
         ).subscribe( data => {
           this.cart = data;
-          console.log(this.cart);
+          // console.log(this.cart);
           for(let i=0;i<data.length ;i++){  //How to properly iterate here!!
             this.itemsService.getAllCartItem(this.cart[i].id).snapshotChanges().pipe(
               map(changes =>
@@ -54,7 +54,8 @@ export class KeranjangPage implements OnInit {
               this.cartItem = data;
               this.query[i]= this.cartItem;
             });
-          }console.log(this.query);
+          }
+          console.log(this.query);
         });
       }
       else {
@@ -65,4 +66,10 @@ export class KeranjangPage implements OnInit {
     });
   }
 
+  deleteCart(itemid: string, i: string){
+    const index = this.query.indexOf(i);
+    console.log(index);
+    this.query.splice(index,1);
+    this.itemsService.deleteCart(itemid, this.userID);
+  }
 }

@@ -87,14 +87,16 @@ export class ItemService {
 
   createCart(itemid:string, userid:string) {
     this.tmpRef = this.db.list('/cart');
-    // console.log(this.tmpRef);
-    // if(this.tmpItemRef !== null)
-    // {
-    //   console.log("ADA ISINYA");
-    // } else console.log("KOSONG");
     this.tmpItemRef = '/item-'+itemid;
-    // console.log(this.tmpRef.query.path);
     return this.tmpRef.update(userid+'/'+this.tmpItemRef, {
+      id: itemid
+    });
+  }
+
+  deleteCart(itemid:string, userid:string) {
+    this.tmpRef = this.db.list('/cart');
+    this.tmpItemRef = '/item-'+itemid;
+    return this.tmpRef.remove(userid+'/'+this.tmpItemRef, {
       id: itemid
     });
   }
