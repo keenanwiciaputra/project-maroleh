@@ -44,15 +44,14 @@
           <ion-icon style="vertical-align:-4px; zoom:1.2;" name="trash" ></ion-icon>
           </ion-buttons>
 
-          <ion-buttons (click)="incrementQty()" style="margin-left:auto;z-index:3;">
-          <ion-icon style="z-index: 3;zoom:1.2;" name="add-circle" ></ion-icon>
-          </ion-buttons>
-          <ion-text style="width:40px;z-index: 3;text-align:center;margin-left:5px;margin-right:5px;padding:0px" lines="full">
-            {{ qty }}</ion-text>
-          <ion-buttons (click)="decrementQty()" style="z-index: 3;">
+          <ion-buttons (click)="decrementQty()" style="margin-left:auto;z-index:3;">
           <ion-icon style="z-index: 3;zoom:1.2;" name="remove-circle" ></ion-icon>
           </ion-buttons>
-
+          <ion-text style="width:40px;z-index: 3;text-align:center;margin-left:5px;margin-right:5px;padding:0px" lines="full">
+            {{ item[0].qty }}</ion-text>
+          <ion-buttons (click)="incrementQty()" style="z-index: 3;">
+          <ion-icon style="z-index: 3;zoom:1.2;" name="add-circle" ></ion-icon>
+          </ion-buttons>
 
         </ion-row>
       </ion-grid>
