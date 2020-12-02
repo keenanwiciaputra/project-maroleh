@@ -16,7 +16,7 @@
       <ion-buttons class="btn-upload" for="fileUp">
         <ion-icon name="cloud-upload"></ion-icon> 
       </ion-buttons>
-      <ion-input type="file" accept="image/*" (change)="changeListener($event)" ngModel name="foto" id="fileUp"></ion-input>     
+      <ion-input type="file" accept="image/*" (change)="changeListener($event)" ngModel name="foto" class="fileUp"></ion-input>     
 
     </div>
     <div class="text-pengaturan">
@@ -51,6 +51,15 @@
         <ion-input type="text" ngModel name="notelepon"></ion-input>
       </ion-item>
 
+      <ion-input type="text" ngModel name="alamat" hidden></ion-input>
+      <ion-input type="text" ngModel name="id" hidden></ion-input>
+      <ion-input type="text" ngModel name="kabupaten" hidden></ion-input>
+      <ion-input type="text" ngModel name="kodepos" hidden></ion-input>
+      <ion-input type="text" ngModel name="kecamatan" hidden></ion-input>
+      <ion-input type="text" ngModel name="namapenerima" hidden></ion-input>
+      <ion-input type="text" ngModel name="nomortelfon" hidden></ion-input>
+      <ion-input type="text" ngModel name="provinsi" hidden></ion-input>
+  
       <div class="btn-pengaturan">
         <ion-button slot="end" type ="submit" class="btn-submit">Ubah</ion-button>
       </div>

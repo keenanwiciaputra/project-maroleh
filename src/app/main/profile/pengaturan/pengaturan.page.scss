@@ -59,6 +59,10 @@
     margin-left: -38px;
     font-size: 30px;
     position: relative;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
   }
 
   .text-pengaturan{
@@ -116,10 +120,12 @@
     text-align: right;
   }
 
-  #fileUp {
+  .fileUp {
     position: absolute;
     opacity: 0;
     margin-top: -48px;
     margin-left: 50%;
-    z-index: 9999
+    z-index: 9999;
+    font-size: 25px;
+
   }
