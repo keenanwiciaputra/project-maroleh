@@ -25,6 +25,7 @@ export class SubItemPage implements OnInit {
       const kategori = paramMap.get('kategori');
       console.log(kategori);
       this.itemsService.getAll(kategori).snapshotChanges().pipe(
+
         map(changes =>
           changes.map(c => ({key: c.payload.key, ...c.payload.val()}))
         )

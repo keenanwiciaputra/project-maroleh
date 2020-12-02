@@ -23,7 +23,7 @@ export class UserService {
     return this.userRef;
   }
 
-  getUser(userid : string){
+  getUser(userid: string){
     return this.db.object('user/' + userid).valueChanges();
   }
 

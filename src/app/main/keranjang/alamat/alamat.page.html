@@ -4,7 +4,7 @@
       Alamat
     </ion-title>
     <ion-buttons slot="start">
-      <ion-back-button text="" defaultHref="main/tabs/profile"></ion-back-button>
+      <ion-back-button text="" defaultHref="main/tabs/keranjang/keranjang-detail"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -43,8 +43,10 @@
         <ion-input class="text-input" type="text" ngModel name="kodepos"></ion-input>
       </ion-item>
 
-      <div class="btn-pengaturan">
-        <ion-button slot="end" type ="submit" class="btn-submit">Ubah</ion-button>
+      <div style="margin-right: 20px;margin-top: 10px" class="btn-pengaturan ion-float-right">
+          <ion-button style="" color="light" class="submit-btn" type="submit" slot="end">
+            Ubah Alamat
+          </ion-button>
       </div>
     </div>
   </form>

@@ -15,15 +15,17 @@
       <ion-text>Alamat Pengiriman</ion-text>
     </div>
     <div style="margin-bottom: 5px">
-      <ion-text style="font-size:12px">Adimas Kusuma (Rumah)</ion-text>
+      <ion-text style="font-size:12px">{{ user?.namapenerima }}</ion-text>
     </div>
     <div style="margin-bottom: 5px">
-      <ion-text style="font-size:12px">085489384893</ion-text>
+      <ion-text style="font-size:12px">{{ user?.nomortelfon }}</ion-text>
     </div>
-    <div style="margin-bottom: 15px">
-      <ion-text style="font-size:12px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</ion-text>
+    <div style="margin-bottom: 5px">
+      <ion-text style="font-size:12px">
+        {{ user?.alamat }}, {{ user?.kecamatan }}, {{ user?.kabupaten }}, {{ user?.provinsi }}, {{ user?.kodepos }}
+      </ion-text>
     </div>
-    <ion-button color="none" class="btn-pilih-alamat" >Pilih Alamat</ion-button>
+    <ion-button color="dark" [routerLink]="['/main/tabs/keranjang/alamat']" class="btn-pilih-alamat" >Ganti Alamat</ion-button>
   </ion-card>
 
 
@@ -73,16 +75,16 @@
       </ion-row>
       <ion-row style="margin-top:10px;padding:0px;">
         <ion-text style="width:70%;font-size:12px">Total Ongkos</ion-text>
-        <ion-text style="font-size:12px">Rp 18.000</ion-text>
+        <ion-text style="font-size:12px">Rp 18000</ion-text>
       </ion-row>
-      <ion-row style="margin-top:10px;padding:0px;">
-        <ion-text style="width:70%;font-size:12px">Poin yang digunakan</ion-text>
-        <ion-text style="font-size:12px">Rp 0</ion-text>
-      </ion-row>
-      <ion-row style="margin-top:10px;padding:0px;">
-        <ion-text style="width:70%;font-size:12px">Diskon</ion-text>
-        <ion-text style="font-size:12px">Rp 0</ion-text>
-      </ion-row>
+<!--      <ion-row style="margin-top:10px;padding:0px;">-->
+<!--        <ion-text style="width:70%;font-size:12px">Poin yang digunakan</ion-text>-->
+<!--        <ion-text style="font-size:12px">Rp 0</ion-text>-->
+<!--      </ion-row>-->
+<!--      <ion-row style="margin-top:10px;padding:0px;">-->
+<!--        <ion-text style="width:70%;font-size:12px">Diskon</ion-text>-->
+<!--        <ion-text style="font-size:12px">Rp 0</ion-text>-->
+<!--      </ion-row>-->
     </ion-grid>
   </ion-card>
 
