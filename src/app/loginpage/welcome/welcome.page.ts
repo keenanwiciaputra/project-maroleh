@@ -33,7 +33,7 @@ export class WelcomePage implements OnInit {
         });
       }
       else {
-        this.navCtrl.navigateBack('');
+        this.navCtrl.navigateBack('/login');
       }
     }, err => {
       console.log(err);

@@ -49,7 +49,7 @@
             <ion-input type="password" placeholder="Kata Sandi" formControlName="password"></ion-input>          
           </div>
           <div class="validation-errors">
-            <ng-container *ngFor="let validation of validation_messages. password">
+            <ng-container *ngFor="let validation of validation_messages.password">
               <div class="error-message"
                 *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
                 {{ validation.message }}
@@ -62,6 +62,12 @@
         <ion-col>
           <div class="forminput">
             <ion-input type="password" placeholder="Konfirmasi Sandi" formControlName="confirmpassword"></ion-input>          
+          </div>
+          <div class="validation-errors">
+              <div class="error-message"
+                *ngIf="validations_form.get('confirmpassword').touched && validations_form.hasError('mismatchedPasswords') && validations_form.controls.password.valid">
+                Password you enter didn't match.
+              </div>
           </div>
         </ion-col>
       </ion-row>
