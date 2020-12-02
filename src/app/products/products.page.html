@@ -26,7 +26,7 @@
             </ion-slide>
           </ion-slides>
         </div>
-        <ion-row>
+        <ion-row style="margin-top: 10px;">
           <ion-col>
             <div>
               <h1 class="harga-item">Rp. {{ item.harga }}</h1>
@@ -167,7 +167,7 @@
             <ion-card-header class="ion-no-padding diskon-card-header">
               <ion-text class="ion-text-left ion-no-margin ion-no-padding">
                 <p class="diskon-title">Satuempat Central Kerajinan Miniatur Wayang Kulit Rama Shinta - Batik</p>
-                <p class="diskon-price">Rp. 98.500</p>
+                <p class="diskon-price">Rp 98.500</p>
                 <p class="diskon-original-container"><span class="diskon-price-original">Rp. 153.000</span><span class="diskon-amount">35%</span></p>
                 <ion-grid class="ion-no-padding ion-no-margin">
                   <ion-row style="margin-top:5px;">
@@ -264,7 +264,7 @@
           <ion-button  fill="outline" class="btnkeranjang" expand="block" (click)="showAlert()">Keranjang+</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button class="btnpesan" expand="block" Href="/main/tabs/keranjang">Pesan Sekarang</ion-button>
+          <ion-button class="btnpesan" expand="block" (click)="pesanSekarang()" Href="/main/tabs/keranjang">Pesan Sekarang</ion-button>
         </ion-col>
       </ion-row>
 </ion-grid>
