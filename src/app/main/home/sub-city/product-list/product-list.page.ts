@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { debounceTime, map } from 'rxjs/operators';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
@@ -15,11 +16,13 @@ export class ProductListPage implements OnInit {
   daerah_tmp: any;
   daerah: any;
   kategori: any;
+  resetItems: any;
+  searchControl: FormControl;
 
   constructor(
     private activatedRoute:ActivatedRoute,
     private itemsService: ItemService
-  ) { }
+  ) { this.searchControl = new FormControl(); }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
@@ -36,9 +39,22 @@ export class ProductListPage implements OnInit {
         )
       ).subscribe( data => {
         this.items = data;
+        this.resetItems = data;
         console.log(data);
+
+        this.setFilteredItems("");
+        this.searchControl.valueChanges.pipe(debounceTime(700)).subscribe(search => {
+          this.setFilteredItems(search);
+        });
       });
     });
+  }
+
+  setFilteredItems(searchTerm) {
+    this.items = this.resetItems;
+    this.items = this.items.filter(item => {
+      return item.nama.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+    })
   }
 
 }
