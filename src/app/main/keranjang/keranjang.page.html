@@ -44,11 +44,12 @@
           <ion-icon style="vertical-align:-4px; zoom:1.2;" name="trash" ></ion-icon>
           </ion-buttons>
 
-          <ion-buttons style="margin-left:auto;z-index:3;"routerLink="/main">
+          <ion-buttons (click)="incrementQty()" style="margin-left:auto;z-index:3;">
           <ion-icon style="z-index: 3;zoom:1.2;" name="add-circle" ></ion-icon>
           </ion-buttons>
-          <ion-text style="width:40px;z-index: 3;text-align:center;margin-left:5px;margin-right:5px;padding:0px" lines="full">2342</ion-text>
-          <ion-buttons style="z-index: 3;"routerLink="/main">
+          <ion-text style="width:40px;z-index: 3;text-align:center;margin-left:5px;margin-right:5px;padding:0px" lines="full">
+            {{ qty }}</ion-text>
+          <ion-buttons (click)="decrementQty()" style="z-index: 3;">
           <ion-icon style="z-index: 3;zoom:1.2;" name="remove-circle" ></ion-icon>
           </ion-buttons>
 
@@ -75,7 +76,7 @@
       <ion-row style="padding:0px;align-items: center">
         <ion-icon color="light" style="vertical-align:middle;  margin-left:15px;vertical-align:middle;" name="star" ></ion-icon>
         <ion-text style="color:black;vertical-align:middle;font-size: 15px;margin-left: 10px">Poin</ion-text>
-        <ion-text style="color:black;width:30%;vertical-align:middle;font-size: 15px;margin-left: 5px">(15.000)</ion-text>
+        <ion-text style="color:black;width:30%;vertical-align:middle;font-size: 15px;margin-left: 5px">(0)</ion-text>
         <ion-toggle color="light" style="margin-left: auto"></ion-toggle>
       </ion-row>
       <ion-row style="margin-top:5px;">

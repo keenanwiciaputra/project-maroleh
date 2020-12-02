@@ -73,4 +73,8 @@ export class HomePage implements OnInit {
       });
   }
 
+  goSearch() {
+    this.navCtrl.navigateForward('/main/tabs/home/search');
+  }
+
 }

@@ -14,9 +14,10 @@
     <div class="img-pengaturan">
       <img class="img-profile" [src]="imgSrc">
       <ion-buttons class="btn-upload" for="fileUp">
-        <ion-icon name="arrow-up-circle"></ion-icon>
+        <ion-icon name="cloud-upload"></ion-icon> 
       </ion-buttons>
-      <ion-input type="file" accept="image/*" (change)="changeListener($event)" ngModel name="foto" id="fileUp"></ion-input>
+      <ion-input type="file" accept="image/*" (change)="changeListener($event)" ngModel name="foto" id="fileUp"></ion-input>     
+
     </div>
     <div class="text-pengaturan">
       
@@ -38,11 +39,6 @@
       <ion-item>
         <ion-label class="text-label" position="floating">Jenis Kelamin</ion-label>
         <ion-input type="text" ngModel name="jeniskelamin"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label class="text-label" position="floating">Alamat</ion-label>
-        <ion-input type="text" ngModel name="alamat"></ion-input>
       </ion-item>
 
       <ion-item>

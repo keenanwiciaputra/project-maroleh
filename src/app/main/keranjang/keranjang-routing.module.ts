@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'keranjang-detail',
     loadChildren: () => import('./keranjang-detail/keranjang-detail.module').then( m => m.KeranjangDetailPageModule)
+  },
+  {
+    path: 'alamat',
+    loadChildren: () => import('./alamat/alamat.module').then( m => m.AlamatPageModule)
   }
 ];
 

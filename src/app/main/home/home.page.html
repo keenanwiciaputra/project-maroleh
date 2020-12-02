@@ -12,7 +12,7 @@
 <ion-content [fullscreen]="true">
   <ion-content>
     <div class="page-container">
-    <ion-searchbar> 
+    <ion-searchbar placeholder="Cari" (ionFocus)="goSearch()"> 
     </ion-searchbar>
     <ion-slides [options]="slideOpts" class="carousel-slides ion-margin-top">
       <ion-slide>

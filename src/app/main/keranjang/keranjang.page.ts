@@ -13,11 +13,14 @@ import { map } from 'rxjs/operators';
 export class KeranjangPage implements OnInit {
   userEmail: string;
   userID: string;
-  query=[];
+  query = [];
+  queryCart = [];
 
+  qty: any;
   user: any;
   cart: any;
   cartItem: any;
+
 
   constructor(
     private navCtrl: NavController,
@@ -27,10 +30,11 @@ export class KeranjangPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    // this.qty = 1;
     this.authSrv.userDetails().subscribe(res => {
       console.log(res);
       console.log('uid: ', res.uid);
-      if(res !== null){
+      if (res !== null){
         this.userEmail =  res.email;
         this.userID = res.uid;
         this.userService.getUser(this.userID).subscribe(profile => {
@@ -44,15 +48,17 @@ export class KeranjangPage implements OnInit {
           )
         ).subscribe( data => {
           this.cart = data;
+          this.qty = this.cart[1].qty;
           // console.log(this.cart);
-          for(let i=0;i<data.length ;i++){  //How to properly iterate here!!
+          for (let i = 0; i < data.length ; i++){  // How to properly iterate here!!
             this.itemsService.getAllCartItem(this.cart[i].id).snapshotChanges().pipe(
               map(changes =>
                 changes.map(c => ({key: c.payload.key, ...c.payload.val()}))
               )
-            ).subscribe( data => {
+            ).subscribe(data => {
               this.cartItem = data;
-              this.query[i]= this.cartItem;
+              this.query[i] = this.cartItem;
+
             });
           }
           console.log(this.query);
@@ -69,7 +75,21 @@ export class KeranjangPage implements OnInit {
   deleteCart(itemid: string, i: string){
     const index = this.query.indexOf(i);
     console.log(index);
-    this.query.splice(index,1);
+    this.query.splice(index, 1);
     this.itemsService.deleteCart(itemid, this.userID);
   }
+
+  incrementQty() {
+    this.qty += 1;
+  }
+
+  decrementQty() {
+    if (this.qty - 1 < 1) {
+      this.qty = 1;
+    } else {
+      this.qty -= 1;
+    }
+  }
+
+
 }
