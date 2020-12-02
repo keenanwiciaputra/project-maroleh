@@ -34,7 +34,7 @@
           </ion-col>
           <ion-col>
             <div class="ion-float-right">
-              <ion-icon name="heart-outline" style="zoom:2.0;"></ion-icon>
+              <ion-icon [name]="!checkWishlist ? 'heart-outline' : 'heart'" color="danger" style="zoom:2.0;" (click)="wishlist(item.id)"></ion-icon>
             </div>
           </ion-col>
         </ion-row>

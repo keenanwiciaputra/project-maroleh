@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
         <ion-back-button text="" defaultHref="/main"></ion-back-button>
       </ion-buttons>
-      <ion-searchbar>
+      <ion-searchbar [formControl]="searchControl">
       </ion-searchbar>
       <ion-buttons routerLink="/main/tabs/keranjang" slot="primary" class="ion-padding-end">
         <ion-icon slot="icon-only" name="cart-outline" class="icon-toolbar"></ion-icon>

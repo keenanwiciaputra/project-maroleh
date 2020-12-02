@@ -13,16 +13,12 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./dikirim.page.scss'],
 })
 export class DikirimPage implements OnInit {
-  private displayMode = 1;
-
   userEmail: string;
   userID: string;
   user: any;
   order: any;
-  orderItem: any;
+  exist: number;
 
-  query=[];
-  queryorder = [];
 
   constructor(
     private navCtrl: NavController,
@@ -33,6 +29,7 @@ export class DikirimPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.exist = 0;
     this.authSrv.userDetails().subscribe(res => {
       console.log(res);
       console.log('uid: ', res.uid);
@@ -51,17 +48,26 @@ export class DikirimPage implements OnInit {
         ).subscribe( data => {
           this.order = data;
           console.log(this.order);
+          if(this.order.length > 0) {
+            this.exist = 1;
+            this.order = this.getOrder(2);
+            if(this.order.length == 0) {
+              this.exist = 0;
+            }
+          }
         });
       }
       else {
-        this.navCtrl.navigateBack('');
+        this.navCtrl.navigateBack('/login');
       }
     }, err => {
       console.log(err);
     });
   }
 
-  onDisplayModeChange(mode: number): void {
-    this.displayMode = mode;
+  getOrder(id: number) {
+    return this.order.filter( (item) => {
+      return item.status === id 
+    });
   }
 }
