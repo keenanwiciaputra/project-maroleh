@@ -115,6 +115,13 @@ export class ItemService {
     });
   }
 
+  updateCart(itemid: string, userid: string, quantity:string) {
+    this.tmpRef = this.db.list('/cart');
+    this.tmpItemRef = '/item-' + itemid;
+    return this.tmpRef.update(userid + '/' + this.tmpItemRef, {
+      qty: quantity
+    });
+  }
 
   deleteCart(itemid: string, userid: string) {
     this.tmpRef = this.db.list('/cart');

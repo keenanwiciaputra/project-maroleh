@@ -80,15 +80,21 @@ export class KeranjangPage implements OnInit {
     this.itemsService.deleteCart(itemid, this.userID);
   }
 
-  incrementQty() {
-    this.qty += 1;
+  incrementQty(itemid:string, quantity:number, i:string) {
+    quantity += 1;
+    this.query[i][0].qty = quantity;
+    this.itemsService.updateCart(itemid, this.userID, this.query[i][0].qty);
   }
 
-  decrementQty() {
-    if (this.qty - 1 < 1) {
-      this.qty = 1;
+  decrementQty(itemid:string, quantity:number, i:string) {
+    if (quantity - 1 < 1) {
+      quantity = 1;
+      this.query[i][0].qty = quantity;
+      this.itemsService.updateCart(itemid, this.userID, this.query[i][0].qty);
     } else {
-      this.qty -= 1;
+      quantity -= 1;
+      this.query[i][0].qty = quantity;
+      this.itemsService.updateCart(itemid, this.userID, this.query[i][0].qty);
     }
   }
 
