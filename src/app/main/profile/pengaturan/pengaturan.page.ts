@@ -28,6 +28,7 @@ export class PengaturanPage implements OnInit {
   selectedImage: any = null;
   imgDB: string;
   imgUrl: string;
+  boolImg: number;
 
   @ViewChild('f', null) f: NgForm;
 
@@ -41,6 +42,7 @@ export class PengaturanPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.boolImg = 0;
     this.authSrv.userDetails().subscribe(res => {
       console.log(res);
       console.log('uid: ', res.uid);
@@ -68,7 +70,7 @@ export class PengaturanPage implements OnInit {
   onSubmit(form: NgForm){
     console.log(form);
 
-    if(form.value.foto != null) {
+    if(this.boolImg == 1) {
       var filePath = 'user/foto/'+ this.userID;
     
       const fileRef = this.storage.ref(filePath);
@@ -79,6 +81,8 @@ export class PengaturanPage implements OnInit {
             })
         })
       ).subscribe();
+    } else {
+      this.imgUrl = this.imgSrc;
     }
     form.value['foto'] = this.imgUrl;
 
@@ -110,6 +114,7 @@ export class PengaturanPage implements OnInit {
       this.imgSrc = this.imgDB;
       this.selectedImage = null;
     }
+    this.boolImg = 1;
   }
 
   logout() {
