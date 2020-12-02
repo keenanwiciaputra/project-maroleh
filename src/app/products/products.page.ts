@@ -47,6 +47,23 @@ export class ProductsPage implements OnInit {
 
 
   ngOnInit() {
+    
+    this.authSrv.userDetails().subscribe(res => {
+      console.log(res);
+      console.log('mulai uid: ', res.uid);
+      if(res !== null){
+        this.userEmail =  res.email;
+        this.userID = res.uid;
+        this.userService.getUser(this.userID).subscribe(profile => {
+          this.user = profile;
+          console.log(profile);
+        });
+      }
+    });
+
+  }
+
+  ionViewDidEnter() {
     this.qty = 1;
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('id')) { return; }
@@ -58,6 +75,7 @@ export class ProductsPage implements OnInit {
         )
       ).subscribe( data => {
         this.detailItems = data;
+        console.log("a");
         console.log(this.detailItems);
 
         // PANGGIL WISHLIST COCOKIN ITEM ID SAMA SEMUA ITEM DI WISHLIST
@@ -66,6 +84,7 @@ export class ProductsPage implements OnInit {
             changes2.map(c => ({key: c.payload.key, ...c.payload.val()}))
           )
         ).subscribe( data2 => {
+          console.log("baba");
           this.wish = data2;
           console.log(this.wish);
           for(let i=0;i<data2.length ;i++){  //How to properly iterate here!!
@@ -87,22 +106,6 @@ export class ProductsPage implements OnInit {
             // SELESAI PANGGIL WISHLIST
       });
     });
-
-    this.authSrv.userDetails().subscribe(res => {
-      console.log(res);
-      console.log('uid: ', res.uid);
-      if(res !== null){
-        this.userEmail =  res.email;
-        this.userID = res.uid;
-        this.userService.getUser(this.userID).subscribe(profile => {
-          this.user = profile;
-          console.log(profile);
-        });
-      }
-    });
-
- 
-
   }
 
   async showAlert() {
