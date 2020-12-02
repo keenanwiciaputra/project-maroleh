@@ -29,6 +29,7 @@ export class ItemService {
   constructor(
     private db: AngularFireDatabase
   ) {
+    this.itemRef = db.list(this.dbPath);
     this.itemDiskonRef = db.list(this.dbPath, ref=> ref.orderByChild("diskon").equalTo(1).limitToFirst(15));
     this.itemRekom = db.list(this.dbRekom);
     this.itemMakananRef = db.list(this.dbPath, ref => ref.orderByChild('kategori').equalTo('Makanan & Minuman'));

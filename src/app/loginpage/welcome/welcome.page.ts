@@ -17,7 +17,7 @@ export class WelcomePage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authSrv: AuthService,
-    private userService: UserService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -30,6 +30,8 @@ export class WelcomePage implements OnInit {
           console.log(profile);
         });
       }
+    }, err => {
+      this.navCtrl.navigateBack('/login');
     });
   }
 
