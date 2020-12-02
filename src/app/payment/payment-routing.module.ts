@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./payment-method-detail/payment-method-detail.module').then( m => m.PaymentMethodDetailPageModule)
   },
   {
-    path: 'payment-process',
+    path: 'payment-process/:id',
     loadChildren: () => import('./payment-process/payment-process.module').then( m => m.PaymentProcessPageModule)
   }
 

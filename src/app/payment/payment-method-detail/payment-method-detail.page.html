@@ -4,12 +4,12 @@
       Pembayaran
     </ion-title>
     <ion-buttons slot="start">
-      <ion-back-button text="" defaultHref="main/tabs/keranjang/keranjang-detail"></ion-back-button>
+      <ion-back-button text="" defaultHref="main/tabs/payment"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngFor="let item of bankItems">
   <ion-card  [routerLink]="['/payment']" style="align-items:center;padding:15px">
     <div style="margin-left:auto;margin-right:auto;display:block;align-items:center;">
       <ion-text style="font-style: italic">Ganti Metode Pembayaran</ion-text>
@@ -19,13 +19,13 @@
   <ion-card style="align-items:center;padding:15px">
     <ion-grid style="padding:0px;">
       <ion-row style="padding:0px;">
-        <ion-text style="width:70%;">Rp 81000</ion-text>
-        <ion-text [routerLink]="['main/tabs/keranjang/keranjang-detail']" color="light">Detail Tagihan</ion-text>
+        <ion-text style="width:70%;">Rp {{totalFix}}</ion-text>
+        <a style="color: black;text-decoration: none" href="main/tabs/keranjang/keranjang-detail">Detail Tagihan</a>
       </ion-row>
     </ion-grid>
   </ion-card>
 
-  <ion-card *ngFor="let item of bankItems" style="align-items:center;padding:15px">
+  <ion-card style="align-items:center;padding:15px">
     <ion-grid style="padding:0px;">
       <ion-row style="padding:0px;">
         <ion-text style="width:70%;">{{item.nama}}</ion-text>
@@ -52,10 +52,10 @@
             Total Harga
           </div>
           <div style="font-weight: bold;color:orange;font-size: medium;">
-            Rp 81.000
+            Rp {{totalFix}}
           </div>
         </div>
-        <ion-button [routerLink]="['/payment/payment-process']"color="light" class="round-button">Bayar</ion-button>
+        <ion-button style="margin-left: auto" [routerLink]="['/payment/payment-process', item.id]"color="light" class="round-button">Bayar</ion-button>
       </ion-row>
     </ion-grid>
   </div>
