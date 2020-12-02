@@ -85,6 +85,22 @@ export class ItemService {
     return this.db.list(this.dbPath, ref=> ref.orderByChild("id").equalTo(id));
   }
 
+  createWishlist(itemid:string, userid:string) {
+    this.tmpRef = this.db.list('/wishlist');
+    this.tmpItemRef = '/item-'+itemid;
+    return this.tmpRef.update(userid+'/'+this.tmpItemRef, {
+      id: itemid
+    });
+  }
+
+  deleteWishlist(itemid:string, userid:string) {
+    this.tmpRef = this.db.list('/wishlist');
+    this.tmpItemRef = '/item-'+itemid;
+    return this.tmpRef.remove(userid+'/'+this.tmpItemRef, {
+      id: itemid
+    });
+  }
+
   createCart(itemid:string, userid:string) {
     this.tmpRef = this.db.list('/cart');
     this.tmpItemRef = '/item-'+itemid;
@@ -92,6 +108,7 @@ export class ItemService {
       id: itemid
     });
   }
+
 
   deleteCart(itemid:string, userid:string) {
     this.tmpRef = this.db.list('/cart');
