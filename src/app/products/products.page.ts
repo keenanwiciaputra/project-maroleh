@@ -47,7 +47,6 @@ export class ProductsPage implements OnInit {
 
 
   ngOnInit() {
-    
     this.authSrv.userDetails().subscribe(res => {
       console.log(res);
       console.log('mulai uid: ', res.uid);
@@ -117,10 +116,14 @@ export class ProductsPage implements OnInit {
           handler: () => {
             // console.log(this.userID);
             this.itemsService.createCart(this.detailItems[0].id, this.userID);
-          } 
+          }
         }
       ]
     }).then(res => res.present());
+  }
+
+  pesanSekarang() {
+    this.itemsService.createCart(this.detailItems[0].id, this.userID);
   }
 
   wishlist(itemid: string){
