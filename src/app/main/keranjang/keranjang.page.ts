@@ -20,6 +20,7 @@ export class KeranjangPage implements OnInit {
   user: any;
   cart: any;
   cartItem: any;
+  total: number = 0;
 
 
   constructor(
@@ -48,6 +49,7 @@ export class KeranjangPage implements OnInit {
           )
         ).subscribe( data => {
           this.cart = data;
+          this.total = 0;
           // this.qty = this.cart[1].qty;
           // console.log(this.cart);
           for (let i = 0; i < data.length ; i++){  // How to properly iterate here!!
@@ -59,7 +61,7 @@ export class KeranjangPage implements OnInit {
               this.cartItem = data;
               this.query[i] = this.cartItem;
               this.query[i][0].qty = this.cart[i].qty;
-              // console.log(this.query);
+              this.total = this.total + (this.query[i][0].qty*this.query[i][0].harga);
             });
           }
           console.log(this.query);
@@ -97,6 +99,5 @@ export class KeranjangPage implements OnInit {
       this.itemsService.updateCart(itemid, this.userID, this.query[i][0].qty);
     }
   }
-
 
 }
