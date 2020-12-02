@@ -9,13 +9,14 @@ const routes: Routes = [
     component: PaymentPage
   },
   {
-    path: 'payment-method-detail',
+    path: 'payment-method-detail/:id',
     loadChildren: () => import('./payment-method-detail/payment-method-detail.module').then( m => m.PaymentMethodDetailPageModule)
   },
   {
     path: 'payment-process',
     loadChildren: () => import('./payment-process/payment-process.module').then( m => m.PaymentProcessPageModule)
   }
+
 ];
 
 @NgModule({

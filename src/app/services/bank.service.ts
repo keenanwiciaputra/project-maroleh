@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
-import {User} from './user';
-import {Order} from './order';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { Bank } from './bank';
+import {Item} from './item';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +9,18 @@ import {Order} from './order';
 export class BankService {
 
   private dbPath = '/bank';
-
+  bankRef: AngularFireList<Bank> = null;
 
   constructor(
       private db: AngularFireDatabase
-  ) { }
-
-  getBankAll(userid : string): AngularFireList<Order> {
-    this.dbPath = '/order/'+userid;
-    return this.db.list(this.dbPath);
+  ) {
+    this.bankRef = db.list(this.dbPath);
   }
 
+  getAll(): AngularFireList<Bank> {
+    return this.bankRef;
+  }
+  getDetailBank(id): AngularFireList<Item> {
+    return this.db.list(this.dbPath, ref => ref.orderByChild('id').equalTo(id));
+  }
 }

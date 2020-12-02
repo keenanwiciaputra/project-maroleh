@@ -21,6 +21,7 @@ export class KeranjangDetailPage implements OnInit {
   cart: any;
   cartItem: any;
   total: number = 0;
+  totalFix: number = 0;
 
   constructor(
     private navCtrl: NavController,
@@ -59,6 +60,7 @@ export class KeranjangDetailPage implements OnInit {
               this.cartItem = data;
               this.query[i] = this.cartItem;
               this.query[i][0].qty = this.cart[i].qty;
+              this.totalFix = this.total + (this.query[i][0].qty*this.query[i][0].harga) + 18000;
               this.total = this.total + (this.query[i][0].qty*this.query[i][0].harga);
             });
           }
