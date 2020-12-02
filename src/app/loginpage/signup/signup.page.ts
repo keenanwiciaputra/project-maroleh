@@ -67,6 +67,27 @@ export class SignupPage implements OnInit {
       alamat: new FormControl('', Validators.compose( [
  
       ])),
+      id: new FormControl('', Validators.compose( [
+ 
+      ])),
+      kabupaten: new FormControl('', Validators.compose( [
+ 
+      ])),
+      kodepos: new FormControl('', Validators.compose( [
+ 
+      ])),
+      namapenerima: new FormControl('', Validators.compose( [
+ 
+      ])),
+      nomortelfon: new FormControl('', Validators.compose( [
+ 
+      ])),
+      provinsi: new FormControl('', Validators.compose( [
+ 
+      ])),
+      kecamatan: new FormControl('', Validators.compose( [
+ 
+      ])),
     }, { validator: this.matchingPasswords('password', 'confirmpassword')});
   
   }
