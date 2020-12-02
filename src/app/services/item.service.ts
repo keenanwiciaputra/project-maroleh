@@ -123,6 +123,14 @@ export class ItemService {
     });
   }
 
+  checkoutCart(userid: string, totalcart:string) {
+    this.tmpRef = this.db.list('/cart');
+    // this.tmpItemRef = '/item-' + itemid;
+    return this.tmpRef.update(userid, {
+      total: totalcart
+    });
+  }
+
   deleteCart(itemid: string, userid: string) {
     this.tmpRef = this.db.list('/cart');
     this.tmpItemRef = '/item-' + itemid;

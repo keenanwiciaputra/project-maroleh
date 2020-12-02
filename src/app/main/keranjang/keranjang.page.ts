@@ -99,5 +99,5 @@ export class KeranjangPage implements OnInit {
       this.itemsService.updateCart(itemid, this.userID, this.query[i][0].qty);
     }
   }
-
+  
 }
