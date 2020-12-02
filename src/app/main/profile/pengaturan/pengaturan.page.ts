@@ -50,10 +50,8 @@ export class PengaturanPage implements OnInit {
         this.userService.getUser(this.userID).subscribe(profile => {
           this.user = profile;
           this.imgSrc =  this.user.foto;
-          console.log(this.imgSrc);
         });
         
-
         setTimeout( () => {
           this.f.setValue(this.user);
         })
@@ -77,15 +75,16 @@ export class PengaturanPage implements OnInit {
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             this.imgUrl = url;
-            form.value['foto'] = this.imgUrl;
             })
         })
       ).subscribe();
     }
+    form.value['foto'] = this.imgUrl;
 
     this.userService.update(this.userID, form.value).then(res => {
       this.router.navigateByUrl('/main/tabs/profile');
     }).catch(error => console.log(error));
+    console.log(form.value['foto']);
 
     form.reset();
     this.router.navigateByUrl('/main/tabs/profile');
