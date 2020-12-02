@@ -10,29 +10,30 @@
 </ion-header>
 
 <ion-content>
-  <ng-container *ngFor="let item of order">
-
-    <div class="note" *ngIf="item.status != 1">
+  <span *ngIf="exist == 0">
+    <div class="note" >
       <img class="img-note" src="assets/images/profile/notepad.png">
-    <ion-text class="text-note"> Belum ada pesanan </ion-text>
-    <ion-button class="btn-belanja">Mulai Belanja</ion-button>
-  </div>
+      <ion-text class="text-note"> Belum ada pesanan </ion-text>
+      <ion-button class="btn-belanja" routerLink="/main/tabs/home">Mulai Belanja</ion-button>
+    </div>
+  </span>
 
-  <div class="note-ada" *ngIf="item.status != 1">
-    <ion-card class="ion-padding-bottom note-item-card">
-      <div class="note-ada">
-        <ion-text class="note-card-header"> Nomor Order </ion-text>
-        <ion-text class="note-nomor-order">{{ item.nomororder }}</ion-text>
-        <img class="note-img-card" src="{{ item.img1 }}">
-        <div class="note-text-card">
-         <ion-text class="note-title-card">{{  item.nama }}</ion-text>
-         <ion-text class="note-harga-card">Rp. {{ item.harga }}</ion-text>
-         <ion-text class="note-jumlah-card">Jumlah : {{ item.jumlah }}</ion-text>
-        </div>  
-      </div>
-    </ion-card>
-  </div>
-  </ng-container>
-
-
+  <span *ngIf="exist == 1">
+    <ng-container *ngFor="let item of order">
+    <div class="note-ada">
+      <ion-card class="ion-padding-bottom note-item-card">
+        <div class="note-ada">
+          <ion-text class="note-card-header"> Nomor Order </ion-text>
+          <ion-text class="note-nomor-order">{{ item.nomororder }}</ion-text>
+          <img class="note-img-card" src="{{ item.img1 }}">
+          <div class="note-text-card">
+          <ion-text class="note-title-card">{{  item.nama }}</ion-text>
+          <ion-text class="note-harga-card">Rp. {{ item.harga }}</ion-text>
+          <ion-text class="note-jumlah-card">Jumlah : {{ item.jumlah }}</ion-text>
+          </div>  
+        </div>
+      </ion-card>
+    </div>
+    </ng-container>
+  </span>
 </ion-content>
