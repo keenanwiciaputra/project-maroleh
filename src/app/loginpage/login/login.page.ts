@@ -35,8 +35,6 @@ export class LoginPage implements OnInit {
       if(res !== null){
         this.navCtrl.navigateForward('/main/tabs/home');
       }
-    }, err => {
-      console.log(err);
     });
 
     this.validations_form = this.formBuilder.group( {

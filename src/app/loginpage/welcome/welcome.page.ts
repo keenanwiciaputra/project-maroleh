@@ -22,8 +22,6 @@ export class WelcomePage implements OnInit {
 
   ngOnInit() {
     this.authSrv.userDetails().subscribe(res => {
-      console.log(res);
-      console.log('uid: ', res.uid);
       if(res !== null){
         this.userEmail =  res.email;
         this.userID = res.uid;
@@ -32,11 +30,6 @@ export class WelcomePage implements OnInit {
           console.log(profile);
         });
       }
-      else {
-        this.navCtrl.navigateBack('/login');
-      }
-    }, err => {
-      console.log(err);
     });
   }
 
