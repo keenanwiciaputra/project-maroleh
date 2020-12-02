@@ -47,7 +47,6 @@ const routes: Routes = [
     path: 'wishlist',
     loadChildren: () => import('./main/profile/wishlist/wishlist.module').then( m => m.WishlistPageModule)
   },
-
   {
     path: 'payment',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)

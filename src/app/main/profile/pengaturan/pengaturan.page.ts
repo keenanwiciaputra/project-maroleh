@@ -76,11 +76,11 @@ export class PengaturanPage implements OnInit {
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             this.imgUrl = url;
-            form.value['foto'] = this.imgUrl;
             })
         })
       ).subscribe();
     }
+    form.value['foto'] = this.imgUrl;
 
     this.userService.update(this.userID, form.value).then(res => {
       this.router.navigateByUrl('/main/tabs/profile');
