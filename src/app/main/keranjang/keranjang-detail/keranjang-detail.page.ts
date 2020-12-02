@@ -21,6 +21,8 @@ export class KeranjangDetailPage implements OnInit {
   cart: any;
   cartItem: any;
   total: number = 0;
+  jml_child: any;
+  jml_child2: any;
 
   constructor(
     private navCtrl: NavController,
@@ -48,8 +50,10 @@ export class KeranjangDetailPage implements OnInit {
         ).subscribe( data => {
           this.cart = data;
           this.total = 0;
+          // this.jml_child = data.length;
+          this.jml_child2 = data.length;
           // this.qty = this.cart[1].qty;
-          // console.log(this.cart);
+          // console.log(this.jml_child);
           for (let i = 0; i < data.length ; i++){  // How to properly iterate here!!
             this.itemsService.getAllCartItem(this.cart[i].id).snapshotChanges().pipe(
               map(changes =>
@@ -64,6 +68,17 @@ export class KeranjangDetailPage implements OnInit {
           }
           console.log(this.query);
         });
+
+        this.itemsService.getAllOrder(this.userID).snapshotChanges().pipe(
+          map(changes =>
+            changes.map(c => ({key: c.payload.key, ...c.payload.val()}))
+          )
+        ).subscribe( data => {
+          // this.cart = data;
+          // this.total = 0;
+          this.jml_child = data.length;
+          console.log("PANJANG ORDER : "+ this.jml_child);
+        });
       }
       else {
         this.navCtrl.navigateBack('');
@@ -73,4 +88,7 @@ export class KeranjangDetailPage implements OnInit {
     });
   }
 
+  // order(){
+  //   this.itemsService.createOrder(this.userID, this.jml_child, this.jml_child2, this.query);
+  // }
 }

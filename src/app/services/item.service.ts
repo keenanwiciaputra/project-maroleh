@@ -10,6 +10,7 @@ export class ItemService {
   private dbRekom = '/rekomendasi';
   private dbWish = '/wishlist';
   private dbCart = '/cart';
+  private dbOrder = '/order';
   itemRef: AngularFireList<Item> = null;
   itemDiskonRef: AngularFireList<Item> = null;
   itemRekom: AngularFireList<Item> = null;
@@ -139,4 +140,23 @@ export class ItemService {
     });
   }
 
+  getAllOrder(userid: string): AngularFireList<Item> {
+    this.dbOrder = '/order/' + userid;
+    return this.db.list(this.dbOrder);
+  }
+
+  // createOrder(userid: string, jml_child: number, jml_child2:number, query:any) {
+  //   jml_child = jml_child + 1;
+  //   this.tmpRef = this.db.list('/order');
+  //   for(let i=0; i<jml_child2; i++){
+  //     this.tmpItemRef[i] = 'order' + jml_child + '/item-' + query[0][i].id;
+  //     // this.tmpRef.update(userid + '/' + this.tmpItemRef)
+  //   }
+  //   for(let i=0; i<jml_child2; i++){
+  //       this.tmpRef.update(userid + '/' + this.tmpItemRef[i], {
+  //       id: query[i].id,
+  //       jumlah: query[i].qty
+  //     });
+  //   }
+  // }
 }
