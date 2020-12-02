@@ -38,7 +38,7 @@ export class ProfilePage implements OnInit {
     this.authSrv.userDetails().subscribe(res => {
       console.log(res);
       console.log('uid: ', res.uid);
-      if(res !== null){
+      if (res !== null){
         this.userEmail =  res.email;
         this.userID = res.uid;
         this.userService.getUser(this.userID).subscribe(profile => {
