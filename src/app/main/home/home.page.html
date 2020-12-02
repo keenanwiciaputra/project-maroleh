@@ -203,89 +203,89 @@
       </ion-text>
     </div>
       <ion-slides [options]="slideOpts2" class="diskon-item-slides ion-margin-bottom">
-        <ion-slide class="diskon-item-slide">
-          <ion-card class="ion-padding-bottom diskon-item-card">
-            <img src="../assets/images/wayang.png">
+        <ion-slide class="diskon-item-slide" *ngFor="let item of diskonItem">
+          <ion-card class="ion-padding-bottom diskon-item-card" [routerLink]="['/products', item.id]">
+            <img src="{{ item.img1 }}">
             <ion-card-header class="ion-no-padding diskon-card-header">
               <ion-text class="ion-text-left ion-no-margin ion-no-padding">
-                <p class="diskon-title">Satuempat Central Kerajinan Miniatur Wayang Kulit Rama Shinta - Batik</p>
-                <p class="diskon-price">Rp. 98.500</p>
-                <p class="diskon-original-container"><span class="diskon-price-original">Rp. 153.000</span><span class="diskon-amount">35%</span></p>
+                <p class="diskon-title">{{ item.nama }}</p>
+                <p class="diskon-price">Rp. {{ item.harga*(100-item.disc_amount)/100 }}</p>
+                <p class="diskon-original-container"><span class="diskon-price-original">Rp. {{ item.harga }}</span><span class="diskon-amount">{{ item.disc_amount }}</span></p>
                 <ion-grid class="ion-no-padding ion-no-margin">
                   <ion-row style="margin-top:5px;">
                     <ion-img src="../assets/images/places.png" style="width:5%"></ion-img>
                     <ion-text class="diskon-place">
-                      Yogyakarta
+                      {{ item.lokasi }}
                     </ion-text>
                   </ion-row>
-                  <ion-row>
+                  <ion-row *ngIf="item.bintang >=2 && item.bintang < 2.5">
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                    <ion-text class="diskon-count-star">
+                      {{ item.review }}
+                    </ion-text>
+                  </ion-row>
+                  <ion-row *ngIf="item.bintang >=2.5 && item.bintang < 3">
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-half" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                    <ion-text class="diskon-count-star">
+                      {{ item.review }}
+                    </ion-text>
+                  </ion-row>
+                  <ion-row *ngIf="item.bintang >=3 && item.bintang < 3.5">
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                    <ion-text class="diskon-count-star">
+                      {{ item.review }}
+                    </ion-text>
+                  </ion-row>
+                  <ion-row *ngIf="item.bintang >= 3.5 && item.bintang < 4">
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-half" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                    <ion-text class="diskon-count-star">
+                      {{ item.review }}
+                    </ion-text>
+                  </ion-row>
+                  <ion-row *ngIf="item.bintang >=4 && item.bintang < 4.5">
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star-outline" color="warning" class="diskon-star"></ion-icon>
+                    <ion-text class="diskon-count-star">
+                      {{ item.review }}
+                    </ion-text>
+                  </ion-row>
+                  <ion-row *ngIf="item.bintang >=4.5 && item.bintang < 5">
                     <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                     <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                     <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                     <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                     <ion-icon name="star-half" color="warning" class="diskon-star"></ion-icon>
                     <ion-text class="diskon-count-star">
-                      (6)
+                      {{ item.review }}
                     </ion-text>
                   </ion-row>
-                </ion-grid>
-              </ion-text>
-            </ion-card-header>
-          </ion-card>
-        </ion-slide>
-        <ion-slide class="diskon-item-slide">
-          <ion-card class="ion-padding-bottom diskon-item-card">
-            <img src="../assets/images/almond-crispy.png">
-            <ion-card-header class="ion-no-padding diskon-card-header">
-              <ion-text class="ion-text-left ion-no-margin ion-no-padding">
-                <p class="diskon-title">Almond Crispy Cheese Original</p>
-                <p class="diskon-price">Rp. 63.000</p>
-                <p class="diskon-original-container"><span class="diskon-price-original">Rp. 75.000</span><span class="diskon-amount">15%</span></p>
-                <ion-grid class="ion-no-padding ion-no-margin">
-                  <ion-row style="margin-top:5px;">
-                    <ion-img src="../assets/images/places.png" style="width:5%"></ion-img>
-                    <ion-text class="diskon-place">
-                      Surabaya
-                    </ion-text>
-                  </ion-row>
-                  <ion-row>
+                  <ion-row *ngIf="item.bintang == 5">
                     <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                     <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                     <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                     <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
-                    <ion-icon name="star-half" color="warning" class="diskon-star"></ion-icon>
+                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
                     <ion-text class="diskon-count-star">
-                      (6)
-                    </ion-text>
-                  </ion-row>
-                </ion-grid>
-              </ion-text>
-            </ion-card-header>
-          </ion-card>
-        </ion-slide>
-        <ion-slide class="diskon-item-slide">
-          <ion-card class="ion-padding-bottom diskon-item-card">
-            <img src="../assets/images/kartika-sari.png">
-            <ion-card-header class="ion-no-padding diskon-card-header">
-              <ion-text class="ion-text-left ion-no-margin ion-no-padding">
-                <p class="diskon-title">Brownies Kartika Sari</p>
-                <p class="diskon-price">Rp 96.000</p>
-                <p class="diskon-original-container"><span class="diskon-price-original">Rp. 105.000</span><span class="diskon-amount">5%</span></p>
-                <ion-grid class="ion-no-padding ion-no-margin">
-                  <ion-row style="margin-top:5px;">
-                    <ion-img src="../assets/images/places.png" style="width:5%"></ion-img>
-                    <ion-text class="diskon-place">
-                      Bandung
-                    </ion-text>
-                  </ion-row>
-                  <ion-row>
-                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
-                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
-                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
-                    <ion-icon name="star" color="warning" class="diskon-star"></ion-icon>
-                    <ion-icon name="star-half" color="warning" class="diskon-star"></ion-icon>
-                    <ion-text class="diskon-count-star">
-                      (6)
+                      {{ item.review }}
                     </ion-text>
                   </ion-row>
                 </ion-grid>

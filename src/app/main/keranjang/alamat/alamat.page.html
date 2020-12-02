@@ -1,0 +1,52 @@
+<ion-header >
+  <ion-toolbar color="light" mode="ios">
+    <ion-title>
+      Alamat
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="main/tabs/profile"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="text-pengaturan">
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Nama Lengkap Penerima</ion-label>
+        <ion-input class="text-input" type="text" ngModel name="namapenerima"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Nomor Telfon Penerima</ion-label>
+        <ion-input class="text-input" type="text" ngModel name="nomortelfon"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Kecamatan</ion-label>
+        <ion-input class="text-input" type="text" ngModel name="kecamatan"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Kota/Kabupaten</ion-label>
+        <ion-input class="text-input" type="text" ngModel name="kabupaten"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Provinsi</ion-label>
+        <ion-input class="text-input" type="text" ngModel name="provinsi"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-label" position="floating">Kode Pos</ion-label>
+        <ion-input class="text-input" type="text" ngModel name="kodepos"></ion-input>
+      </ion-item>
+
+      <div class="btn-pengaturan">
+        <ion-button slot="end" type ="submit" class="btn-submit">Ubah</ion-button>
+      </div>
+    </div>
+  </form>
+
+</ion-content>
