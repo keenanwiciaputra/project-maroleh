@@ -71,7 +71,17 @@ export class KeranjangPage implements OnInit {
               this.cartItem = data;
               this.query[i] = this.cartItem;
               this.query[i][0].qty = this.cart[i].qty;
-              this.total = this.total + (this.query[i][0].qty*this.query[i][0].harga);
+              this.total = this.total + (this.query[i][0].qty*(this.query[i][0].harga-this.query[i][0].harga*this.query[i][0].disc_amount/100));
+              if(this.ctr == 0 && this.query.length>=0)
+              {
+                console.log("TEST");
+                for(let j=0; j<this.query.length;j++)
+                {
+                  const index = this.query.indexOf(j);
+                  this.query.splice(index, 1);
+                  console.log("HAPUS");
+                }
+              }
             });
           }
           // console.log(this.query);

@@ -29,7 +29,8 @@
         <ion-row>
           <ion-col>
             <div>
-              <h1 class="harga-item">Rp. {{ item.harga }}</h1>
+              <h1 class="harga-item">Rp. {{ item.harga-(item.harga*item.disc_amount/100) }}</h1>
+              <h1 *ngIf="item.diskon == 1" class="terjual" style="text-decoration: line-through;">Rp. {{ item.harga }}</h1>
             </div>
           </ion-col>
           <ion-col>

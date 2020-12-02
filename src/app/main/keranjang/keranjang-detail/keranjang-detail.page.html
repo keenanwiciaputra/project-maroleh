@@ -48,8 +48,13 @@
           </ion-row>
           <ion-row>
           <span style="font-weight: bold;color:orange;font-size: medium;">
-            Rp {{ item[0].harga }}
+            Rp {{ item[0].harga-(item[0].harga*item[0].disc_amount/100) }}
           </span>
+          </ion-row>
+          <ion-row>
+            <span *ngIf="item[0].diskon == 1" style="text-decoration: line-through; margin-top:3px; font-size: small;">
+              Rp. {{ item[0].harga }}
+            </span>
           </ion-row>
           <ion-row>
           <span style="margin-top:3px; font-size: small;">

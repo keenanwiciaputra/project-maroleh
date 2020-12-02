@@ -72,8 +72,8 @@ export class PaymentProcessPage implements OnInit {
               this.cartItem = data;
               this.query[i] = this.cartItem;
               this.query[i][0].qty = this.cart[i].qty;
-              this.totalFix = this.total + (this.query[i][0].qty*this.query[i][0].harga) + 18000;
-              this.total = this.total + (this.query[i][0].qty*this.query[i][0].harga);
+              this.totalFix = this.total + (this.query[i][0].qty*(this.query[i][0].harga-this.query[i][0].harga*this.query[i][0].disc_amount/100)) + 18000;
+              this.total = this.total + (this.query[i][0].qty*(this.query[i][0].harga-this.query[i][0].harga*this.query[i][0].disc_amount/100));
             });
           }
           console.log(this.query);
