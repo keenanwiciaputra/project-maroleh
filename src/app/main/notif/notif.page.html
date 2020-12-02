@@ -20,13 +20,14 @@
               <ion-thumbnail class="icon-container">
                 <img src="{{ item.img1 }}" >
               </ion-thumbnail>
-              <ion-label *ngIf="item.status == 0"class="label-style">
+              <ion-label  *ngIf="item.status == 0" class="ion-text-wrap">
                 Pesanan nomor {{ item.nomororder }} menunggu pembayaran.
               </ion-label>
-              <ion-label *ngIf="item.status == 1"class="label-style">
+              <ion-label  *ngIf="item.status == 1" class="ion-text-wrap">
+
                 Pesanan nomor {{ item.nomororder }} sedang diproses.
               </ion-label>
-              <ion-label *ngIf="item.status == 2"class="label-style">
+              <ion-label *ngIf="item.status == 2" class="ion-text-wrap">
                 Pesanan nomor {{ item.nomororder }} sedang dikirim.
               </ion-label>
           </ion-item>
